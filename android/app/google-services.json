@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "601150171945",
+    "project_id": "chat-app-b4c1e",
+    "storage_bucket": "chat-app-b4c1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601150171945:android:e1a16e152a2e00d9462538",
+        "android_client_info": {
+          "package_name": "com.example.domo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601150171945-7ucqspholhlp4fvtort3o8a4bv6ssvov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk2EF1Cb6Hgn66ai6ItmxnVfdAORq03Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601150171945-7ucqspholhlp4fvtort3o8a4bv6ssvov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
