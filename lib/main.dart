@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:domo/message.dart';
+import 'package:domo/chat.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -15,7 +21,7 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: Container(),
+                child: Chat(),
               ),
               Message(),
             ],
