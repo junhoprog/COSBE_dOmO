@@ -1,3 +1,4 @@
+import 'package:domo/chat_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -24,7 +25,7 @@ class Chat extends StatelessWidget {
             reverse: true,
             itemCount: chatDocs.length,
             itemBuilder: (context, index) {
-              return Text(chatDocs[index]['text']);
+              return ChatBubble(chatDocs[index]['text']);
             },
           );
         } else {
