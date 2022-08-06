@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String userName = '';
   String userEmail = '';
   String userPassword = '';
+
+  final _authentication = FirebaseAuth.instance;
 
   void _tryValidation() {
     final isValid = _formKey.currentState!.validate();
@@ -138,6 +141,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               onSaved: (value) {
                                 userName = value!;
                               },
+                              onChanged: (value) {
+                                userName = value;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -154,6 +160,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               },
                               onSaved: (value) {
                                 userEmail = value!;
+                              },
+                              onChanged: (value) {
+                                userEmail = value;
                               },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -172,11 +181,15 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               onSaved: (value) {
                                 userPassword = value!;
                               },
+                              onChanged: (value) {
+                                userPassword = value;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.password,
                                 ),
                               ),
+                              obscureText: true,
                             ),
                           ],
                         ),
@@ -199,6 +212,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               onSaved: (value) {
                                 userEmail = value!;
                               },
+                              onChanged: (value) {
+                                userEmail = value;
+                              },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.email,
@@ -215,6 +231,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               },
                               onSaved: (value) {
                                 userPassword = value!;
+                              },
+                              onChanged: (value) {
+                                userPassword = value;
                               },
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -244,8 +263,49 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     color: Colors.blue,
                   ),
                 ),
-                onTap: () {
-                  _tryValidation();
+                onTap: () async {
+                  if (isSignupScreen) {
+                    _tryValidation();
+
+                    try {
+                      final newUser =
+                          await _authentication.createUserWithEmailAndPassword(
+                              email: userEmail, password: userPassword);
+
+                      if (newUser.user != null) {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) {
+                        //     return screen();
+                        //   }),
+                        // );
+                      }
+                    } catch (e) {
+                      print(e);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Please check your email and password'),
+                          backgroundColor: Colors.blue));
+                    }
+                  } else {
+                    _tryValidation();
+
+                    try {
+                      final newUser =
+                          await _authentication.signInWithEmailAndPassword(
+                              email: userEmail, password: userPassword);
+
+                      if (newUser.user != null) {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) {
+                        //     return screen();
+                        //   }),
+                        // );
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                  }
                 },
               ),
             ),
