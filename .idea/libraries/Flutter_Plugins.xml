@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission-0.1.7" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-2.1.10" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/location-4.4.0" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/location_web-3.1.1" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-10.0.0" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter_windows_3.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter_web-0.3.3" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
