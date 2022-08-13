@@ -2,7 +2,7 @@
     package="com.example.domo">
    <application
         android:label="domo"
-        android:name="${applicationName}"
+        android:name="com.chaquo.python.android.PyApplication"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
