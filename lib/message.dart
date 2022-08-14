@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -52,6 +50,7 @@ class _MessageState extends State<Message> {
     final _result = await Chaquopy.executeCode(code);
     setState(() {
       _outputOrError = _result['textOutputOrError'] ?? '';
+      _sendChatBotMessage();
     });
   }
 
@@ -98,10 +97,9 @@ class _MessageState extends State<Message> {
               ),
             ),
             IconButton(
-              onPressed: () async {
+              onPressed: () {
                 if (!_userEnterMessage.trim().isEmpty) _sendMessage();
                 makePythonCode(_userEnterMessage.trim());
-                _sendChatBotMessage();
               },
               icon: Icon(Icons.send),
               color: Colors.blue,
