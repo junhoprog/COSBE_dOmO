@@ -10,10 +10,29 @@ import 'Marker.dart';
 double current_latitude=0;
 double current_longitude=0;
 
-CameraPosition chungbuk_university = CameraPosition(
-  target: LatLng(37.551, 126.991),
-  zoom: 15,
-);
+Future _initlocation() async{
+  bool _serviceEnabled;
+  PermissionStatus _permissionGranted;
+  LocationData _locationData;
+  Location location = new Location();
+
+  if (!await location.serviceEnabled()) {
+    if (!await location.requestService()) {
+      return;
+    }
+  }
+
+  var permission = await location.hasPermission();
+  if (permission == PermissionStatus.denied) {
+    permission = await location.requestPermission();
+    if (permission != PermissionStatus.granted) {
+      return;
+    }
+  }
+  _locationData = await location.getLocation();
+  current_latitude=_locationData.latitude!;
+  current_longitude=_locationData.longitude!;
+}
 
 class map_page extends StatefulWidget {
   @override
@@ -134,6 +153,8 @@ class map_pageState extends State<map_page>  {
     );
   }
 
+
+
   Future<void> _endTimer(int i) async {
     return showDialog<void>(
       context: context,
@@ -182,7 +203,10 @@ class map_pageState extends State<map_page>  {
               zoomGesturesEnabled: true,
               myLocationEnabled: true,
               myLocationButtonEnabled: false,
-              initialCameraPosition: chungbuk_university,
+              initialCameraPosition: CameraPosition(
+                  target: LatLng(current_latitude,current_longitude),
+                  zoom: 15
+              ),
               onMapCreated:  (GoogleMapController controller) {
                 setState(() {
                   addmap();

@@ -93,7 +93,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                               child: MaterialButton(
                                 padding: EdgeInsets.zero,
                                 onPressed:
-                                markermap.values.elementAt(index)== true ?
+                                markermap.values.elementAt(index)== false ?
                                 (){
                                   Navigator.push(context,
                                     MaterialPageRoute(builder: (context)=>upload_page(index:index))

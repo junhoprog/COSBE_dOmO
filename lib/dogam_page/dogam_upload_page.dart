@@ -66,7 +66,7 @@ class _upload_pageState extends State<upload_page> {
             onPressed: (){Navigator.pop(context);},
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
-          title: Text("상당산성",style: TextStyle(color: Colors.black),),
+          title: Text("${Imagemap_cheongju_title.keys.elementAt(widget.index)}",style: TextStyle(color: Colors.black),),
           backgroundColor: Colors.white,
         ),
 
