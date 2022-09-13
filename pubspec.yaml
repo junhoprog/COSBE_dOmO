@@ -70,6 +70,8 @@ flutter:
     - assets/
     - assets/home_assets/
     - assets/dogam_assets/
+    - assets/logo/
+    - assets/mypage_assets/
     - assets/dogam_assets/do_assets/
     - assets/dogam_assets/Chungbuk/
     - assets/dogam_assets/Chungbuk/Cheongju/
