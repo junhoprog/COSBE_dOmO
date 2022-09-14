@@ -6,6 +6,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:latlong2/latlong.dart' as lat;
 import 'package:async/async.dart';
 import 'Marker.dart';
+import '../dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:csv/csv.dart';
 
 double current_latitude=0;
 double current_longitude=0;
@@ -113,11 +116,13 @@ class map_pageState extends State<map_page>  {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('${markerlist[i].markerId.value}'),
-          content: SingleChildScrollView(
+          //title: Text('${markerlist[i].markerId.value}'),
+          title: Text('${csv_cheongju_List[i][0].toString()}'),
+
+        content: SingleChildScrollView(
             child: ListBody(
               children: [
-                Text('현재 ${markerlist[i].markerId.value} 에 들어오셨습니다. 10분 후 사진과 글을 등록하실 수 있습니다.'),
+                Text('현재 ${csv_cheongju_List[i][0].toString()} 에 들어오셨습니다. 10분 후 사진과 글을 등록하실 수 있습니다.'),
               ],
             ),
           ),
@@ -144,7 +149,9 @@ class map_pageState extends State<map_page>  {
           content: SingleChildScrollView(
             child: ListBody(
               children: [
-                Text('지금부터 ${markerlist[i].markerId.value}에 사진과 글을 등록하실 수 있습니다.'),
+               // Text('지금부터 ${markerlist[i].markerId.value}에 사진과 글을 등록하실 수 있습니다.'),
+                Text('지금부터 ${csv_cheongju_List[i][0].toString()}에 사진과 글을 등록하실 수 있습니다.'),
+
               ],
             ),
           ),

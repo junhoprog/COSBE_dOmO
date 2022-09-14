@@ -34,6 +34,7 @@ List<String> do_dogam_text=[
   '광주',
   '충청남도',
 ];
+
 List<String> do_dogam_detail=[
   '#야경이 아름다움 #한강',
   '# #',
@@ -51,4 +52,4 @@ List<String> do_dogam_detail=[
   '# #',
   '# #',
   '# #',
-];
+];//여기는 우리가 찾아서 하자

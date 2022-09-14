@@ -17,6 +17,20 @@ Set<Marker> markerArray={
   Marker(markerId: MarkerId("삼일공원"),position: LatLng(36.64197298145426,127.49546788975228),infoWindow: InfoWindow(title: "삼일공원")),
 };
 
+List <String> geo_csv_cheongju_List=[
+  "assets/csv_assets/충청북도/geo/geo_충청북도_괴산군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_단양군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_보은군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_영동군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_옥천군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_음성군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_제천군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_증평군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_진천군.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_청주시.csv",
+  "assets/csv_assets/충청북도/geo/geo_충청북도_충주시.csv",
+];
+
 List<Marker> markerlist = markerArray.toList();
 
 Map<String,bool> markermap = {

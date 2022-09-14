@@ -14,6 +14,7 @@ Map<String,bool> Imagemap_cheongju = {
   "assets/dogam_assets/Chungbuk/Cheongju/cheongju_myeongam.jpg":false,
   "assets/dogam_assets/Chungbuk/Cheongju/cheongju_samilpark.jpg":false,
 };
+
 Map<String,String> Imagemap_cheongju_title ={
   "수암골":"#벽화마을#전망대",
   "국립청주박물관":"#문화유산#국보",
@@ -30,6 +31,22 @@ Map<String,String> Imagemap_cheongju_title ={
   "명암유원지":"#유원지#저수지",
   "삼일공원":"#3.1운동#독립공원",
 };
+
+//이거 바꾸기
+
+List <String> csv_cheongju_List=[
+  "assets/csv_assets/충청북도/충청북도_괴산군.csv",
+  "assets/csv_assets/충청북도/충청북도_단양군.csv",
+  "assets/csv_assets/충청북도/충청북도_보은군.csv",
+  "assets/csv_assets/충청북도/충청북도_영동군.csv",
+  "assets/csv_assets/충청북도/충청북도_옥천군.csv",
+  "assets/csv_assets/충청북도/충청북도_음성군.csv",
+  "assets/csv_assets/충청북도/충청북도_제천군.csv",
+  "assets/csv_assets/충청북도/충청북도_증평군.csv",
+  "assets/csv_assets/충청북도/충청북도_진천군.csv",
+  "assets/csv_assets/충청북도/충청북도_청주시.csv",
+  "assets/csv_assets/충청북도/충청북도_충주시.csv",
+];
 
 List <String> url_cheongju_List=[
   "",
