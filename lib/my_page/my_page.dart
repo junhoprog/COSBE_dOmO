@@ -101,7 +101,7 @@ class my_page extends StatelessWidget {
                         Column(
                           children: [
                             Icon(Icons.photo_album_outlined,size: MediaQuery.of(context).size.width/5,),
-                            Text("앨범"),
+                            Text("앨범 제작"),
                           ],
                         ),
                       ],

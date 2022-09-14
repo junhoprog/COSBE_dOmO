@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:cosbe_domo/home_page/home_variable.dart';
+import 'package:cosbe_domo/information_page/recommend_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
 
@@ -246,7 +247,11 @@ class _home_pageState extends State<home_page> {
                                   ],
                                 ),
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder:(context)=> recommend_page())
+                              );
+                            },
                           ),//루트추천 컨테이너
                           SizedBox(height: MediaQuery.of(context).size.height/30),
                           Container(
@@ -258,7 +263,9 @@ class _home_pageState extends State<home_page> {
                                         height: MediaQuery.of(context).size.height/15,
                                         child:MaterialButton(
                                           padding: EdgeInsets.zero,
-                                          onPressed: (){},
+                                          onPressed: (){
+
+                                          },
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
