@@ -26,7 +26,6 @@ List<String> chungbuk_si_dogam_image=[
   'assets/dogam_assets/Chungbuk/chungbuk_si/eumseong.jpg',
   'assets/dogam_assets/Chungbuk/chungbuk_si/danyang.jpg'
 ];
-
 List<String> chungbuk_si_dogam_collect=[
   '2/19',
   '3/14',

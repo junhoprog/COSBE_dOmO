@@ -14,7 +14,6 @@ Map<String,bool> Imagemap_cheongju = {
   "assets/dogam_assets/Chungbuk/Cheongju/cheongju_myeongam.jpg":false,
   "assets/dogam_assets/Chungbuk/Cheongju/cheongju_samilpark.jpg":false,
 };
-
 Map<String,String> Imagemap_cheongju_title ={
   "수암골":"#벽화마을#전망대",
   "국립청주박물관":"#문화유산#국보",

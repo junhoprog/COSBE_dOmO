@@ -21,7 +21,6 @@ class upload_page extends StatefulWidget {
 }
 
 class _upload_pageState extends State<upload_page> {
-
   PickedFile? pickedFile;
   FirebaseStorage storage=FirebaseStorage.instance;
   final firestore=FirebaseFirestore.instance;
@@ -30,7 +29,6 @@ class _upload_pageState extends State<upload_page> {
   String title="";
   String description="";
   int count=1;
-
   List<List<dynamic>> data=[];
 
   void _loadCSV() async {
@@ -62,7 +60,6 @@ class _upload_pageState extends State<upload_page> {
     count++;
     //firestore.collection('cheongju').doc('${Imagemap_cheongju_title.keys.elementAt(index)}').set({'url':'${url}','title':'${title}','description':'${description}'});
     firestore.collection(documentId).doc(data[widget.index][1].toString()).set({'url':'${url}','title':'${title}','description':'${description}'});
-
   }
 
 
@@ -71,6 +68,7 @@ class _upload_pageState extends State<upload_page> {
     var documentId=uuid.v4();
    //await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").delete();
     await firestore.collection(documentId).doc(data[widget.index][1].toString()).delete();
+
   }
 
     Future selectFile1()async{
@@ -93,6 +91,7 @@ class _upload_pageState extends State<upload_page> {
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
           title: Text(data[widget.index][1].toString(),style: TextStyle(color: Colors.black),),
+
           backgroundColor: Colors.white,
         ),
 

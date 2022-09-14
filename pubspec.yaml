@@ -48,6 +48,8 @@ dependencies:
   cloud_firestore: ^3.4.1
   csv: ^5.0.1
   uuid: ^3.0.6
+  firebase_auth: ^3.7.0
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,9 @@ flutter:
     - assets/
     - assets/home_assets/
     - assets/dogam_assets/
+    - assets/logo/
+    - assets/mypage_assets/
+    - assets/recommend_assets/
     - assets/dogam_assets/do_assets/
     - assets/dogam_assets/Chungbuk/
     - assets/dogam_assets/Chungbuk/Cheongju/

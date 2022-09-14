@@ -87,7 +87,6 @@ class dogam_si_album_page extends StatelessWidget {
                                         fontSize: 30,
                                         color: Colors.white,
                                       )),
-
                                     ]
                                 ),
                               ),
