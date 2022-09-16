@@ -16,6 +16,12 @@ class _information_pageState extends State<information_page> {
         body: Stack(
             children : [
               Image.asset("assets/recommend_assets/rainbow2.jpg",height: MediaQuery.of(context).size.height/10*6,fit: BoxFit.fitHeight,),
+              Positioned(
+                  top: 20,
+                  child: IconButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, icon: Icon(Icons.keyboard_arrow_left,size: 50,color: Colors.white,))
+              ),
               DraggableScrollableSheet(
                 initialChildSize: 0.55,
                 minChildSize: 0.55,
@@ -73,7 +79,7 @@ class _information_pageState extends State<information_page> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text("영동 풍경 즐기기",style: TextStyle(fontSize: 25),),
+                                Text("레인보우 영화관",style: TextStyle(fontSize: 25),),
                                 Text("Lv4",style: TextStyle(color: Colors.red,fontSize: 17))
                               ],
                             ),

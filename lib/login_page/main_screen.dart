@@ -16,6 +16,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String userName = '';
   String userEmail = '';
   String userPassword = '';
+  bool isChecked=false;
 
   final _authentication = FirebaseAuth.instance;
 
@@ -170,8 +171,27 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     ),
                                     hintText: "password"
                                 ),
-                                obscureText: true,
+                                obscureText: !isChecked,
                               ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: isChecked,
+                                    onChanged: (value){
+                                      setState((){
+                                        if(isChecked==true){
+                                          isChecked=false;
+                                        }
+                                        else {
+                                          isChecked=true;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                  Text("비밀번호 표시")
+                                ],
+                              )
                             ],
                           ),
                         ),
@@ -204,6 +224,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 ),
                               ),
                               TextFormField(
+                                obscureText: !isChecked,
                                 key: ValueKey(5),
                                 validator: (value) {
                                   if (value!.isEmpty || value.length < 6) {
@@ -224,6 +245,25 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     hintText: "password"
                                 ),
                               ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Checkbox(
+                                    value: isChecked,
+                                    onChanged: (value){
+                                      setState((){
+                                        if(isChecked==true){
+                                          isChecked=false;
+                                        }
+                                        else {
+                                          isChecked=true;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                  Text("비밀번호 표시")
+                                ],
+                              )
                             ],
                           ),
                         ),
