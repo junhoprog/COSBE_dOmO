@@ -4,13 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosbe_domo/dogam_page/dogam_upload_page.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
-import 'package:uuid/uuid.dart';\
-import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/chungbuk_si_variable.dart';
-import 'package:cosbe_domo/dogam_page/dogam_album_page.dart';
-import 'package:flutter/material.dart';
-import'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cosbe_domo/dogam_page/dogam_upload_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class dogam_post_page extends StatefulWidget {
   const dogam_post_page({Key? key,this.index=0}) : super(key: key);
@@ -27,6 +21,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
   var result;
 
   List<List<dynamic>> data=[];
+  final auth = FirebaseAuth.instance;
 
   void _loadCSV(int index) async {
     final _rawData = await rootBundle.loadString("${csv_cheongju_List[index]}");
@@ -42,29 +37,20 @@ class _dogam_post_pageState extends State<dogam_post_page> {
   }
 
   GetDataview(int index) async {
-    var uuid=Uuid();
-    var documentId=uuid.v4();
-   // result=await firestore.collection("cheongju").doc('${Imagemap_cheongju_title.keys.elementAt(index)}').get();
-    result=await firestore.collection(documentId).doc('${data[index][0].toString()}').get();
+    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
 
     url=result['url'];
     return url;
   }
   GetDataview2(int index) async {
 
-    var uuid=Uuid();
-    var documentId=uuid.v4();
-    // result=await firestore.collection("cheongju").doc('${Imagemap_cheongju_title.keys.elementAt(index)}').get();
-    result=await firestore.collection(documentId).doc('${data[index][0].toString()}').get();
+    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
 
     title=result['title'];
     return title;
   }
   GetDataview3(int index) async {
-    var uuid=Uuid();
-    var documentId=uuid.v4();
-    // result=await firestore.collection("cheongju").doc('${Imagemap_cheongju_title.keys.elementAt(index)}').get();
-    result=await firestore.collection(documentId).doc('${data[index][0].toString()}').get();
+    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
 
     description=result['description'];
     return description;
@@ -81,7 +67,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
          // title: Text("${Imagemap_cheongju_title.keys.elementAt(widget.index)}",style: TextStyle(color: Colors.black),),
-          title: Text("${data[widget.index][0].toString()}",style: TextStyle(color: Colors.black),),
+          title: Text("${data[widget.index][1].toString()}",style: TextStyle(color: Colors.black),),
           backgroundColor: Colors.white,
           actions: [
             MaterialButton(

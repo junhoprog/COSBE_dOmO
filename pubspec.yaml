@@ -79,8 +79,7 @@ flutter:
     - assets/dogam_assets/Chungbuk/
     - assets/dogam_assets/Chungbuk/Cheongju/
     - assets/dogam_assets/Chungbuk/chungbuk_si/
-    - assets/csv_assets/
-    -
+    - assets/csv_assets/충청북도/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

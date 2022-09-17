@@ -9,12 +9,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
-import 'package:uuid/uuid.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class dogam_album_page extends StatefulWidget {
   const dogam_album_page({Key? key,this.index=0}) : super(key: key);
   final int index;
-
   @override
   State<dogam_album_page> createState() => _dogam_albumState();
 }
@@ -23,6 +22,7 @@ class _dogam_albumState extends State<dogam_album_page> {
   final firestore=FirebaseFirestore.instance;
   String url="";
   List<List<dynamic>> data=[];
+  final auth = FirebaseAuth.instance;
 
   void _loadCSV() async {
     final _rawData = await rootBundle.loadString(csv_cheongju_List[widget.index]);
@@ -36,17 +36,25 @@ class _dogam_albumState extends State<dogam_album_page> {
   @override
   void initState(){
     _loadCSV();
+    getData(widget.index);
   }
 
-  getData(int index) async {
-    var uuid=Uuid();
-    var documentId=uuid.v4();
-    var i = 0;
-    //var result = await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").get();
-    var result = await firestore.collection(documentId).doc("${data[widget.index][1]}").get();
-    url_cheongju_List[index]=result['url'];
-    return url_cheongju_List[index];
+  void init(){
+    var j=0;
+    while(j<11){
+      url_cheongju_List[j]="";
+      j++;
+    }
   }
+
+
+  getData(int index) async {
+     init();
+      var result= await firestore.collection('${auth.currentUser?.uid}').doc("${data[index][1]}").get();
+        url_cheongju_List[index]=result['url'];
+
+       return url_cheongju_List[index];
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +92,6 @@ class _dogam_albumState extends State<dogam_album_page> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                /*  Text("${chungbuk_si_dogam_map.keys.elementAt(widget.index)}",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700,color:Colors.white),),
-                          Text("${chungbuk_si_dogam_map.values.elementAt(widget.index)}",style: TextStyle(fontSize:20,color:Colors.white),),
-                       */
                                 Text(chungbuk_si_dogam_map.keys.elementAt(widget.index),style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700,color:Colors.white),),
                                 Text(chungbuk_si_dogam_map.values.elementAt(widget.index),style: TextStyle(fontSize:20,color:Colors.white),),
                               ],
@@ -122,6 +127,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                 onPressed:
                                                 markermap.values.elementAt(index)== true ?
                                                     (){
+
                                                   Navigator.push(context,
                                                       MaterialPageRoute(builder: (context)=>upload_page(index:index,num:widget.index))
 
@@ -133,12 +139,10 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                     barrierDismissible: false, // user must tap button!
                                                     builder: (BuildContext context) {
                                                       return AlertDialog(
-                                                        //title: Text('${Imagemap_cheongju_title.keys.elementAt(index)}'),
                                                         title:Text(data[widget.index][1].toString()),
                                                         content: SingleChildScrollView(
                                                           child: ListBody(
                                                             children: [
-                                                              //   Text('아직 ${Imagemap_cheongju_title.keys.elementAt(index)} 에 글과 사진을 등록하실 수 없습니다.'),
                                                               Text('아직 글과 사진을 등록하실 수 없습니다.'),
                                                             ],
                                                           ),
@@ -179,15 +183,13 @@ class _dogam_albumState extends State<dogam_album_page> {
                                               height: MediaQuery.of(context).size.height/5*2,
                                             ),
                                             onPressed: () {
-                                              Navigator.push(context,
+                                             Navigator.push(context,
                                                   MaterialPageRoute(builder: (context)=>dogam_post_page(index:index))
                                               );
                                             },
                                           )
                                       )
                                   ),
-                                  /*  Text("${Imagemap_cheongju_title.keys.elementAt(index)}",style: TextStyle(fontSize: 20),),
-                    Text("${Imagemap_cheongju_title.values.elementAt(index)}"),*/
                                   Text("${data[index][1].toString()}",style: TextStyle(fontSize: 20),),
                                   Text("${data[index][2].toString()}"),
                                 ]

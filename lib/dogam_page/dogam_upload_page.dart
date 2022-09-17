@@ -10,7 +10,7 @@ import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/che
 import 'package:cosbe_domo/dogam_page/dogam_album_page.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
-import 'package:uuid/uuid.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class upload_page extends StatefulWidget {
   const upload_page({Key? key,this.index=1,this.num=1}) : super(key: key);
@@ -31,6 +31,8 @@ class _upload_pageState extends State<upload_page> {
   int count=1;
   List<List<dynamic>> data=[];
 
+  final auth = FirebaseAuth.instance;
+
   void _loadCSV() async {
     final _rawData = await rootBundle.loadString(csv_cheongju_List[widget.num]);
     List<List<dynamic>> _listData =
@@ -45,8 +47,6 @@ class _upload_pageState extends State<upload_page> {
   }
 
   Future uploadFile1(int index)async{
-    var uuid=Uuid();
-    var documentId=uuid.v4();
     int count=0;
     int filename=count;
     final firebaseStorageRef = storage.ref().child('user_image').child('test1').child('${filename}.png');
@@ -59,15 +59,13 @@ class _upload_pageState extends State<upload_page> {
     url_cheongju_List[index]=url;
     count++;
     //firestore.collection('cheongju').doc('${Imagemap_cheongju_title.keys.elementAt(index)}').set({'url':'${url}','title':'${title}','description':'${description}'});
-    firestore.collection(documentId).doc(data[widget.index][1].toString()).set({'url':'${url}','title':'${title}','description':'${description}'});
+    firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).set({'url':'${url}','title':'${title}','description':'${description}','uid':auth.currentUser?.uid});
   }
 
 
   Future deleteFile1(int index)async{
-    var uuid=Uuid();
-    var documentId=uuid.v4();
    //await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").delete();
-    await firestore.collection(documentId).doc(data[widget.index][1].toString()).delete();
+    await firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).delete();
 
   }
 

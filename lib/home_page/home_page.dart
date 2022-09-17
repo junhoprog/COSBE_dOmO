@@ -3,7 +3,7 @@ import 'package:cosbe_domo/home_page/home_variable.dart';
 import 'package:cosbe_domo/information_page/recommend_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
-
+import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
 class home_page extends StatefulWidget {
   const home_page({Key? key}) : super(key: key);
 
@@ -12,6 +12,7 @@ class home_page extends StatefulWidget {
 }
 
 class _home_pageState extends State<home_page> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
