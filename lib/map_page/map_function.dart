@@ -1,12 +1,11 @@
 import 'dart:async';
-import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
-import 'package:location/location.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:latlong2/latlong.dart' as lat;
 import 'package:async/async.dart';
 import 'Marker.dart';
-import 'map_page.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 double current_latitude=0;
 double current_longitude=0;
@@ -17,6 +16,7 @@ AsyncMemoizer asyncMemoizer = AsyncMemoizer();
 int a = markerlist.length;
 Map<String,int> start= new Map();
 Timer? _timer;
+
 
 void startTimer(int i) {
   int count=10;
@@ -35,7 +35,6 @@ void startTimer(int i) {
   );
 }
 
-
 Circle circles= Circle(
   circleId: CircleId("my"),
   center: LatLng(36.6327083252033,127.48753448066267),
@@ -50,7 +49,6 @@ void addmap(){
 
 
 Future initLocationService(Location location) async {
-  location.changeSettings(interval: 10000,distanceFilter: 5);
   bool _serviceEnabled;
   PermissionStatus _permissionGranted;
   LocationData _locationData;
@@ -74,7 +72,7 @@ Future initLocationService(Location location) async {
 }
 
 Future<void> inmarker(int i) async {
-  return print('현재 ${markerlist[i].markerId.value} 에 들어오셨습니다. 10분 후 사진과 글을 등록하실 수 있습니다.');
+  return inNotification(markerlist[i].markerId.value);
 }
 
 Future<void> marker_search()async {
@@ -90,8 +88,95 @@ Future<void> marker_search()async {
   };
 }
 
-
-
 Future<void> endTimer(int i) async {
-  return print('지금부터 ${markerlist[i].markerId.value}에 사진과 글을 등록하실 수 있습니다.');
+  return resNotification(markerlist[i].markerId.value);
+}
+
+final notifications = FlutterLocalNotificationsPlugin();
+
+//1. 앱로드시 실행할 기본설정
+Future initNotification() async {
+  //안드로이드용 아이콘파일 이름
+  var androidSetting = AndroidInitializationSettings('@drawable/domo_icon');
+
+  var initializationSettings = InitializationSettings(
+    android: androidSetting,
+  );
+  await notifications.initialize(
+    initializationSettings,
+    //알림 누를때 함수실행하고 싶으면
+    //onSelectNotification: 함수명추가
+  );
+}
+
+int in_groupcounter=1;
+int res_groupcounter=10000;
+
+Future inNotification(dynamic spot) async {
+  String groupKey = "in_key";
+
+  var androidDetails = AndroidNotificationDetails(
+    'dOmO',
+    'notification',
+    priority: Priority.high,
+    importance: Importance.max,
+    color: Colors.black,
+      icon: "@drawable/domo_icon",
+    groupKey: groupKey,
+  );
+  var groupDetails = AndroidNotificationDetails(
+      'domo',
+      'notification',
+    priority: Priority.high,
+    importance: Importance.max,
+    color: Colors.black,
+    icon: "@drawable/domo_icon",
+    groupKey: groupKey,
+    setAsGroupSummary: true,
+  );
+  // 알림 id, 제목, 내용 맘대로 채우기
+  notifications.show(
+      in_groupcounter,
+      '${spot}에 입장하셨습니다.',
+      '10분 뒤 ${spot}에 사진과 글을 등록하실 수 있습니다.',
+      NotificationDetails(android: androidDetails), // 부가정보
+  );
+  in_groupcounter++;
+  notifications.show(-1, "", "", NotificationDetails(android: groupDetails));
+}
+
+Future resNotification(dynamic spot) async {
+
+  String groupKey = "res_key";
+
+  var androidDetails = AndroidNotificationDetails(
+    'dOmO',
+    'notification',
+    priority: Priority.high,
+    importance: Importance.max,
+    color: Colors.black,
+    icon: "@drawable/domo_icon",
+    colorized: true,
+    groupKey: groupKey,
+  );
+  var groupDetails = AndroidNotificationDetails(
+    'domo',
+    'notification',
+    priority: Priority.high,
+    importance: Importance.max,
+    color: Colors.black,
+    icon: "@drawable/domo_icon",
+    groupKey: groupKey,
+    setAsGroupSummary: true,
+  );
+  // 알림 id, 제목, 내용 맘대로 채우기
+  notifications.show(
+      res_groupcounter,
+      '${spot} 활성화!',
+      '지금부터 ${spot}에 사진과 글을 등록하실 수 있습니다.',
+      NotificationDetails(android: androidDetails),
+  );
+
+  res_groupcounter++;
+  notifications.show(-2, "", "", NotificationDetails(android: groupDetails));
 }

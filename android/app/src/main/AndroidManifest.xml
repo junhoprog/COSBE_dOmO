@@ -14,7 +14,7 @@
     <application
         android:label="domo"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/domo_color_icon">
 
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCCuWce3n9SMeJua6cQ_vfnFEcd0zJ3H1g"/>
         <activity
@@ -24,7 +24,9 @@
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:icon="@mipmap/domo_color_icon"
+            >
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
