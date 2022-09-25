@@ -49,6 +49,8 @@ dependencies:
   firebase_auth: ^3.7.0
   fluttertoast: ^8.0.9
   flutter_local_notifications: ^11.0.0
+  flutter_secure_storage: ^6.0.0
+  chaquopy: ^0.0.19
 
 dev_dependencies:
   flutter_test:
