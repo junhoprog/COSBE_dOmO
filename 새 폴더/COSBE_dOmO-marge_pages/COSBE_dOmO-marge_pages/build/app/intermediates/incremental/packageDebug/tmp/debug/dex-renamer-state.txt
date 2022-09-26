@@ -1,0 +1,4 @@
+#Tue Aug 09 12:22:51 KST 2022
+base.0=C\:\\Users\\dy962\\Desktop\\cosbe_domo\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

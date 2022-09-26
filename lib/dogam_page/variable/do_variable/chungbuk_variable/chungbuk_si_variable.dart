@@ -38,4 +38,5 @@ List<String> chungbuk_si_dogam_collect=[
   '2/19',
   '3/14',
   '4/17',
+  //data.length로
 ];

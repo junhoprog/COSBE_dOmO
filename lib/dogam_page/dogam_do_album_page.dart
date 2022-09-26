@@ -7,7 +7,6 @@ import 'variable/dogam_variable.dart';
 class dogam_do_album_page extends StatelessWidget {
   const dogam_do_album_page({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -108,11 +107,6 @@ class dogam_do_album_page extends StatelessWidget {
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold
                                   )),
-                                  Text('${do_dogam_detail[index+1]}',
-                                      style:TextStyle(
-                                        color:Colors.grey,
-                                        fontSize: 10,
-                                      )),
                                 ]
                             ),
                           ),
@@ -132,3 +126,4 @@ class dogam_do_album_page extends StatelessWidget {
     );
   }
 }
+//광역시를 없애고 도만?

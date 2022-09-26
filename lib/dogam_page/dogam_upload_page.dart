@@ -7,12 +7,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cosbe_domo/dogam_page/dogam_album_page.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:csv/csv.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class upload_page extends StatefulWidget {
-  const upload_page({Key? key,this.index=1}) : super(key: key);
+  const upload_page({Key? key,this.index=1,this.num=1}) : super(key: key);
   final int index;
+  final int num;
   @override
   State<upload_page> createState() => _upload_pageState();
 }
@@ -26,10 +29,26 @@ class _upload_pageState extends State<upload_page> {
   String title="";
   String description="";
   int count=1;
+  List<List<dynamic>> data=[];
+
+  final auth = FirebaseAuth.instance;
+
+  void _loadCSV() async {
+    final _rawData = await rootBundle.loadString(csv_cheongju_List[widget.num]);
+    List<List<dynamic>> _listData =
+    const CsvToListConverter().convert(_rawData);
+    setState(() {
+      data = _listData;
+    });
+  }
+  @override
+  void initState(){
+    _loadCSV();
+  }
+
   Future uploadFile1(int index)async{
     int count=0;
     int filename=count;
-    print(index);
     final firebaseStorageRef = storage.ref().child('user_image').child('test1').child('${filename}.png');
     // 파일 업로드
     final uploadTask = firebaseStorageRef.putFile(
@@ -39,12 +58,15 @@ class _upload_pageState extends State<upload_page> {
     url= await firebaseStorageRef.getDownloadURL();
     url_cheongju_List[index]=url;
     count++;
-    firestore.collection('cheongju').doc('${Imagemap_cheongju_title.keys.elementAt(index)}').set({'url':'${url}','title':'${title}','description':'${description}'});
+    //firestore.collection('cheongju').doc('${Imagemap_cheongju_title.keys.elementAt(index)}').set({'url':'${url}','title':'${title}','description':'${description}'});
+    firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).set({'url':'${url}','title':'${title}','description':'${description}','uid':auth.currentUser?.uid});
   }
 
 
   Future deleteFile1(int index)async{
-   await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").delete();
+   //await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").delete();
+    await firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).delete();
+
   }
 
     Future selectFile1()async{
@@ -66,7 +88,8 @@ class _upload_pageState extends State<upload_page> {
             onPressed: (){Navigator.pop(context);},
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
-          title: Text("${Imagemap_cheongju_title.keys.elementAt(widget.index)}",style: TextStyle(color: Colors.black),),
+          title: Text(data[widget.index][1].toString(),style: TextStyle(color: Colors.black),),
+
           backgroundColor: Colors.white,
         ),
 
@@ -153,10 +176,9 @@ class _upload_pageState extends State<upload_page> {
                     ),
                     MaterialButton(
                       onPressed: (){
-                        print(widget.index);
                         uploadFile1(widget.index);
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=>dogam_album_page(index:widget.index))
+                            MaterialPageRoute(builder: (context)=>dogam_album_page(index:widget.num))
                         );
                       },
                       child: Container(
