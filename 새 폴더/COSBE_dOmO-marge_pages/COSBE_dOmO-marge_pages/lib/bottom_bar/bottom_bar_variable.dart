@@ -1,1 +1,0 @@
-int currentTap=0;
