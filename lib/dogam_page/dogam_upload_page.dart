@@ -1,21 +1,33 @@
 import 'dart:io';
 import 'dart:ui';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/do_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/cheongju/cheongju_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/chungbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungnam/chungnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gangwon/gangwon_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gwangyeok/gwangyeok_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongbuk/gyeongbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gyeonggi_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/gyeongnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/jeonbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonnam/jeonnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/dogam_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
 import 'package:cosbe_domo/dogam_page/dogam_album_page.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class upload_page extends StatefulWidget {
-  const upload_page({Key? key,this.index=1,this.num=1}) : super(key: key);
+  const upload_page({Key? key,this.index=1,this.si_num=1,this.do_num=1}) : super(key: key);
   final int index;
-  final int num;
+  final int si_num;
+  final int do_num;
+
   @override
   State<upload_page> createState() => _upload_pageState();
 }
@@ -29,17 +41,85 @@ class _upload_pageState extends State<upload_page> {
   String title="";
   String description="";
   int count=1;
+  bool marker=false;
   List<List<dynamic>> data=[];
-
   final auth = FirebaseAuth.instance;
 
   void _loadCSV() async {
-    final _rawData = await rootBundle.loadString(csv_cheongju_List[widget.num]);
-    List<List<dynamic>> _listData =
-    const CsvToListConverter().convert(_rawData);
-    setState(() {
-      data = _listData;
-    });
+    final _rawData;
+    List<List<dynamic>>_listData;
+    if (widget.do_num == 0) {
+      final _rawData = await rootBundle.loadString(
+          csv_gwangyeog_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 1) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeonggi_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 2) {
+      final _rawData = await rootBundle.loadString(
+          csv_chungbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 3) {
+      final _rawData = await rootBundle.loadString(
+          csv_jeonbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 4) {
+      final _rawData = await rootBundle.loadString(
+          csv_gangwon_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 5) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeongbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 6) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeongnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 7) {
+      final _rawData = await rootBundle.loadString(
+          csv_chungnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 8) {
+      final _rawData = await rootBundle.loadString(
+          csv_jeonnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
   }
   @override
   void initState(){
@@ -49,34 +129,178 @@ class _upload_pageState extends State<upload_page> {
   Future uploadFile1(int index)async{
     int count=0;
     int filename=count;
-    final firebaseStorageRef = storage.ref().child('user_image').child('test1').child('${filename}.png');
+
+    if(widget.do_num==0)
+    {
+    filename=index;
+    final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
     // 파일 업로드
     final uploadTask = firebaseStorageRef.putFile(
-        images
+    images
     );
     await uploadTask.whenComplete(() => null);
     url= await firebaseStorageRef.getDownloadURL();
     url_cheongju_List[index]=url;
-    count++;
-    //firestore.collection('cheongju').doc('${Imagemap_cheongju_title.keys.elementAt(index)}').set({'url':'${url}','title':'${title}','description':'${description}'});
-    firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).set({'url':'${url}','title':'${title}','description':'${description}','uid':auth.currentUser?.uid});
-  }
-
-
-  Future deleteFile1(int index)async{
-   //await firestore.collection("cheongju").doc("${Imagemap_cheongju_title.keys.elementAt(index)}").delete();
-    await firestore.collection('${auth.currentUser?.uid}').doc(data[widget.index][1].toString()).delete();
-
-  }
-
-    Future selectFile1()async{
-      final result= await ImagePicker().getImage(source:ImageSource.gallery);
-      if(result==null) return;//아무것도 꺼내지않았을 때
-      setState((){
-        pickedFile=result;
-      });
-      images= File(pickedFile!.path);
+    firestore
+        .collection('${do_dogam_text[widget.do_num]}')
+        .doc('${gwangyeok_dogam_list[widget.si_num]}')
+        .collection('${data[index][1]}')
+        .doc('${auth.currentUser?.uid}')
+        .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
     }
+    else if(widget.do_num==1)
+    {
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${gyeonggi_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==2)
+    {
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${chungbuk_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+
+    }
+    else if(widget.do_num==3)
+    {
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc(jeonbuk_dogam_list[widget.si_num])
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==4)
+    {
+
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${gangwon_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==5)
+    {
+
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${gyeongbuk_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==6)
+    {
+
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${gyeongnam_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==7)    {
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${chungnam_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+    }
+    else if(widget.do_num==8)
+    {
+      filename=index;
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
+      final uploadTask = firebaseStorageRef.putFile(
+          images
+      );
+      await uploadTask.whenComplete(() => null);
+      url= await firebaseStorageRef.getDownloadURL();
+      url_cheongju_List[index]=url;
+      firestore
+          .collection('${do_dogam_text[widget.do_num]}')
+          .doc('${jeonnam_dogam_list[widget.si_num]}')
+          .collection('${data[index][1]}')
+          .doc('${auth.currentUser?.uid}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','marker':'${marker}'});
+    }
+  }
+
+  Future selectFile1()async{
+    final result= await ImagePicker().getImage(source:ImageSource.gallery);
+    if(result==null) return;//아무것도 꺼내지않았을 때
+    setState((){
+      pickedFile=result;
+    });
+    images= File(pickedFile!.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +327,7 @@ class _upload_pageState extends State<upload_page> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     pickedFile==null
-                   ? MaterialButton(
+                        ? MaterialButton(
                       onPressed: (){
                         selectFile1();
                       },
@@ -116,15 +340,15 @@ class _upload_pageState extends State<upload_page> {
                               mainAxisAlignment: MainAxisAlignment.center,
 
                               children: [
-                                  Icon(Icons.add_photo_alternate_outlined,size: MediaQuery.of(context).size.height/5,),
-                                    Text("사진을 등록해 주세요.")
+                                Icon(Icons.add_photo_alternate_outlined,size: MediaQuery.of(context).size.height/5,),
+                                Text("사진을 등록해 주세요.")
                               ],
                             ),
                           )
                       ),
                     )
 
-                    : Image.file(images),
+                        : Image.file(images),
 
                     Container(
                       width: MediaQuery.of(context).size.width/3*2,
@@ -149,38 +373,39 @@ class _upload_pageState extends State<upload_page> {
                                 border: InputBorder.none,
                                 label: Align(alignment:Alignment.centerLeft,child: Text('title')),
                               ),
-                                  onChanged:  (value){
+                              onChanged:  (value){
                                 title=value;
-                          }
+                              }
                           )
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                      padding: EdgeInsets.all(10),
-                      width: MediaQuery.of(context).size.width/3*2,
-                      height: MediaQuery.of(context).size.height/4,
-                      color: Colors.grey[300],
-                      child: TextFormField(
-                          maxLines: 10,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.zero,
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                             border: InputBorder.none,
-                            label: Align(alignment:Alignment.topLeft,child: Text('Description')),
-                          ),
-                          onChanged:(value){
-                            description=value;
-                          }
-                      )
+                        margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                        padding: EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width/3*2,
+                        height: MediaQuery.of(context).size.height/4,
+                        color: Colors.grey[300],
+                        child: TextFormField(
+                            maxLines: 10,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.zero,
+                              floatingLabelBehavior: FloatingLabelBehavior.never,
+                              border: InputBorder.none,
+                              label: Align(alignment:Alignment.topLeft,child: Text('Description')),
+                            ),
+                            onChanged:(value){
+                              description=value;
+                            }
+                        )
                     ),
                     MaterialButton(
                       onPressed: (){
                         uploadFile1(widget.index);
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context)=>dogam_album_page(index:widget.num))
+                            MaterialPageRoute(builder: (context)=>dogam_album_page(si_num:widget.si_num, do_num:widget.do_num))
                         );
                       },
+
                       child: Container(
                         width: MediaQuery.of(context).size.width/3*2,
                         height: MediaQuery.of(context).size.height/15,

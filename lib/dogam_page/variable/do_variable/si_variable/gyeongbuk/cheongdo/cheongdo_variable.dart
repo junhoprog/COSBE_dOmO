@@ -1,0 +1,33 @@
+Map<String,bool> Imagemap_cheongdo = {
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_공암풍벽.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_낙대폭포.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_남산계곡.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_다로리 벽화마을.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_선암서원.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_솔바람길.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_운문사.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도 레일바이크.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도 프로방스.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도박물관.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도새마을테마파크.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도소싸움미디어체험관.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청도/경상북도_청도군_청도읍성.jpg":false,
+};
+
+List <String> url_cheongdo_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

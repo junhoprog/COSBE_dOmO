@@ -1,4 +1,13 @@
-import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/do_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/chungbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungnam/chungnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gangwon/gangwon_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gwangyeok/gwangyeok_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongbuk/gyeongbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gyeonggi_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/gyeongnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/jeonbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonnam/jeonnam_si_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosbe_domo/dogam_page/dogam_upload_page.dart';
@@ -7,8 +16,10 @@ import 'package:csv/csv.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class dogam_post_page extends StatefulWidget {
-  const dogam_post_page({Key? key,this.index=0}) : super(key: key);
+  const dogam_post_page({Key? key,this.index=0,this.si_num=0,this.do_num=0}) : super(key: key);
   final int index;
+  final int si_num;
+  final int do_num;
   @override
   State<dogam_post_page> createState() => _dogam_post_pageState();
 }
@@ -23,35 +34,114 @@ class _dogam_post_pageState extends State<dogam_post_page> {
   List<List<dynamic>> data=[];
   final auth = FirebaseAuth.instance;
 
-  void _loadCSV(int index) async {
-    final _rawData = await rootBundle.loadString("${csv_cheongju_List[index]}");
-    List<List<dynamic>> _listData =
-    const CsvToListConverter().convert(_rawData);
-    setState(() {
-      data = _listData;
-    });
+  void _loadCSV() async {
+    final _rawData;
+    List<List<dynamic>> _listData;
+
+    if (widget.do_num == 1) {
+      final _rawData = await rootBundle.loadString(
+          csv_gwangyeog_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+
+    else if (widget.do_num == 2) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeonggi_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 3) {
+      final _rawData = await rootBundle.loadString(
+          csv_chungbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 4) {
+      final _rawData = await rootBundle.loadString(
+          csv_jeonbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 5) {
+      final _rawData = await rootBundle.loadString(
+          csv_gangwon_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 6) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeongbuk_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 7) {
+      final _rawData = await rootBundle.loadString(
+          csv_gyeongnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 8) {
+      final _rawData = await rootBundle.loadString(
+          csv_chungnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
+    else if (widget.do_num == 9) {
+      final _rawData = await rootBundle.loadString(
+          csv_jeonnam_List[widget.si_num]);
+      _listData = const CsvToListConverter().convert(_rawData);
+      setState(() {
+        data = _listData;
+      });
+    }
   }
   @override
   void initState(){
-    _loadCSV(widget.index);
+    _loadCSV();
   }
 
   GetDataview(int index) async {
-    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
-
+    result=await firestore
+        .collection('${do_dogam_text[widget.do_num]}')
+        .doc(gwangyeok_dogam_list[widget.si_num])
+        .collection('${data[index][1]}')
+        .doc('${auth.currentUser?.uid}').get();
     url=result['url'];
     return url;
   }
   GetDataview2(int index) async {
 
-    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
-
+    result=await firestore
+        .collection('${do_dogam_text[widget.do_num]}')
+        .doc(gwangyeok_dogam_list[widget.si_num])
+        .collection('${data[index][1]}')
+        .doc('${auth.currentUser?.uid}').get();
     title=result['title'];
     return title;
   }
   GetDataview3(int index) async {
-    result=await firestore.collection('${auth.currentUser?.uid}').doc('${data[index][1].toString()}').get();
-
+    result=await firestore
+        .collection('${do_dogam_text[widget.do_num]}')
+        .doc(gwangyeok_dogam_list[widget.si_num])
+        .collection('${data[index][1]}')
+        .doc('${auth.currentUser?.uid}').get();
     description=result['description'];
     return description;
   }

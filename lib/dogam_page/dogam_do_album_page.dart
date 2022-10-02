@@ -26,10 +26,99 @@ class dogam_do_album_page extends StatelessWidget {
             margin:EdgeInsets.fromLTRB(0, 20, 0, 20),
             child:ListView.builder(
               controller: dogam_do_album_controller,
-              itemCount: 16,
+              itemCount: do_dogam_text.length,
               itemBuilder: (BuildContext context, int index) {
                 if(index%2==0)
                 {
+                  if(index==8)
+                    {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children:<Widget> [
+                          Column(
+                            children: [
+                              MaterialButton(
+                                child:ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child:(
+                                      new Image.asset(
+                                        width:MediaQuery.of(context).size.width/10*4,
+                                        height:MediaQuery.of(context).size.height/4,
+                                        '${do_dogam_image[index]}',
+                                        fit:BoxFit.fill,
+                                      )
+                                  ),
+                                ),
+                                onPressed: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index,))
+                                  );//navigator
+                                },
+                                padding:EdgeInsets.zero,
+                              ),
+                              Container(
+                                width:MediaQuery.of(context).size.width/10*4,
+                                height: MediaQuery.of(context).size.height/20,
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children:[
+                                      Text('${do_dogam_text[index]}',style:TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold
+                                      )),
+
+                                    ]
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              MaterialButton(
+                                child:ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child:(
+                                      new Image.asset(
+                                        width:MediaQuery.of(context).size.width/10*4,
+                                        height:MediaQuery.of(context).size.height/4,
+                                        '${do_dogam_image[index+1]}',
+                                        fit:BoxFit.fill,
+                                      )
+                                  ),
+                                ),
+                                onPressed: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index+1))
+                                  );//navigator
+                                },
+                                padding:EdgeInsets.zero,
+                              ),
+                              Container(
+                                width:MediaQuery.of(context).size.width/10*4,
+                                height: MediaQuery.of(context).size.height/20,
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children:[
+                                      Text('${do_dogam_text[index+1]}',style:TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold
+                                      )),
+                                    ]
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children:<Widget>[
+                              Container(),
+                            ]
+                            ),
+                        ],
+                      );
+                    }
+                  else{
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children:<Widget> [
@@ -49,8 +138,8 @@ class dogam_do_album_page extends StatelessWidget {
                             ),
                             onPressed: (){
                               Navigator.push(
-                                context, 
-                                MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index,))
+                                  context,
+                                  MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index,))
                               );//navigator
                             },
                             padding:EdgeInsets.zero,
@@ -65,11 +154,7 @@ class dogam_do_album_page extends StatelessWidget {
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold
                                   )),
-                                  Text('${do_dogam_detail[index]}',
-                                      style:TextStyle(
-                                        color:Colors.grey,
-                                        fontSize: 10,
-                                      )),
+
                                 ]
                             ),
                           ),
@@ -114,6 +199,7 @@ class dogam_do_album_page extends StatelessWidget {
                       ),
                     ],
                   );
+                  }
                 }
                 else{
                   return SizedBox();

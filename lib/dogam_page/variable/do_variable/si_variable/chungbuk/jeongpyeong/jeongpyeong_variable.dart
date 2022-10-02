@@ -1,0 +1,33 @@
+Map<String,bool> Imagemap_jeongpyeong = {
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_별천지공원.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_보강천 미루나무 숲.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_보강천체육공원.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_좌구산 명상구름다리.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_좌구산 휴양랜드 좌구산자연휴양림.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_좌구산.jpgg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_좌구산천문대.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평 단군전.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평 배극렴 묘소.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평 어린이 자전거 공원.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평민속체험박물관.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평시민공원.jpg":false,
+  "assets/dogam_assets/Chungbuk/증평/충청북도_증평군_증평인삼관광휴게소.jpg":false,
+};
+
+List <String> url_jeongpyeong_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

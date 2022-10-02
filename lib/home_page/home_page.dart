@@ -4,12 +4,8 @@ import 'package:cosbe_domo/map_page/Marker.dart';
 import 'package:cosbe_domo/map_page/map_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
-<<<<<<< HEAD
-import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
-=======
 import 'package:cosbe_domo/map_page/map_function.dart';
 
->>>>>>> e091b56ec870ac34ab080d37194d61b712dd5e46
 class home_page extends StatefulWidget {
   const home_page({Key? key}) : super(key: key);
 

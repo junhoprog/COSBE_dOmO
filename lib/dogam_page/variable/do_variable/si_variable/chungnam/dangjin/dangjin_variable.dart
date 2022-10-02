@@ -1,0 +1,33 @@
+Map<String,bool> Imagemap_dangjin = {
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_기지시줄다리기박물관.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_당진 삽교호.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_당진 면천읍성.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삼선산수목원.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삽교천.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삽교호 관광지.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삽교호 바다공원.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삽교호놀이동산.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_삽교호함상공원.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_순성벚꽃길.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_아미미술관.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_왜목마을.jpg":false,
+  "assets/dogam_assets/chungnam/당진/충청남도_당진시_합덕제.jpg":false,
+};
+
+List <String> url_dangjin_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

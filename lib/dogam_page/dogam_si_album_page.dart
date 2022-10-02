@@ -1,13 +1,16 @@
+import 'package:cosbe_domo/dogam_page/variable/do_variable/do_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/chungbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungnam/chungnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gangwon/gangwon_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gwangyeok/gwangyeok_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongbuk/gyeongbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gyeonggi_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/jeonbuk_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/gyeongnam_si_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonnam/jeonnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/dogam_variable.dart';
 import'package:flutter/material.dart';
-import'variable/do_variable/chungbuk_variable/chungbuk_si_variable.dart';
-import 'variable/do_variable/do_variable.dart';
 import 'dogam_album_page.dart';
-import 'variable/do_variable/chungbuk_variable/cheongju_variable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:csv/csv.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class dogam_si_album_page extends StatefulWidget {
   const dogam_si_album_page({Key? key,this.index=0}) : super(key: key);
@@ -17,58 +20,145 @@ final int index;
 }
 
 class _dogam_si_album_pageState extends State<dogam_si_album_page> {
+  var do_num;
+  int items=1;
 
-  final firestore=FirebaseFirestore.instance;
-  List<List<dynamic>> data=[];
-  final auth = FirebaseAuth.instance;
-  int count=0;
-
-  void _loadCSV() async {
-    int j=0;
-    while (j<11) {
-      final _rawData = await rootBundle.loadString(csv_cheongju_List[j]);
-      List<List<dynamic>> _listData =
-      const CsvToListConverter().convert(_rawData);
-      setState(() {
-        data = _listData;
-      });
+  String _ImgCSV(int index) {
+    if(do_num==0)
+    {
+      return gwangyeog_dogam_image[index];
     }
+    else if(do_num==1)
+    {
+      return gyeonggi_dogam_image[index];
+    }
+    else if(do_num==2)
+    {
+      return chungbuk_dogam_image[index];
+    }
+    else if(do_num==3)
+    {
+      return jeonbuk_dogam_image[index];
+    }
+    else if(do_num==4)
+    {
+      return gangwon_dogam_image[index];
+    }
+    else if(do_num==5)
+    {
+      return gyeongbuk_dogam_image[index];
+    }
+    else if(do_num==6)
+    {
+      return gyeongnam_dogam_image[index];
+    }
+    else if(do_num==7)
+    {
+      return chungnam_dogam_image[index];
+    }
+    else if(do_num==8)
+    {
+      return jeonnam_dogam_image[index];
+    }
+    return "null";
+  }
+  String dogam_list(int index) {
 
+    if(do_num==0)
+    {
+      return gwangyeok_dogam_list[index];
+    }
+    else if(do_num==1)
+    {
+      return gyeonggi_dogam_list[index];
+    }
+    else if(do_num==2)
+    {
+      return chungbuk_dogam_list[index];
+    }
+    else if(do_num==3)
+    {
+      return jeonbuk_dogam_list[index];
+    }
+    else if(do_num==4)
+    {
+      return gangwon_dogam_list[index];
+    }
+    else if(do_num==5)
+    {
+      return gyeongbuk_dogam_list[index];
+    }
+    else if(do_num==6)
+    {
+      return gyeongnam_dogam_list[index];
+    }
+    else if(do_num==7)
+    {
+      return chungnam_dogam_list[index];
+    }
+    else if(do_num==8)
+    {
+      return jeonnam_dogam_list[index];
+    }
+    return "null";
+  }
+
+  void init(){
+    if(do_num==0)
+      {
+        items=gwangyeok_dogam_list.length;
+      }
+    else if(do_num==1)
+      {
+        items=gyeonggi_dogam_list.length;
+      }
+    else if(do_num==2)
+    {
+      items=chungbuk_dogam_list.length;
+    }
+    else if(do_num==3)
+    {
+      items=jeonbuk_dogam_list.length;
+    }
+    else if(do_num==4)
+    {
+      items=gangwon_dogam_list.length;
+    }
+    else if(do_num==5)
+    {
+      items=gyeongbuk_dogam_list.length;
+    }
+    else if(do_num==6)
+    {
+      items=gyeongnam_dogam_list.length;
+    }
+    else if(do_num==7)
+    {
+      items=chungnam_dogam_list.length;
+    }
+    else if(do_num==8)
+    {
+      items=jeonnam_dogam_list.length;
+    }
   }
 
   @override
   void initState(){
-    _loadCSV();
-    getCount(widget.index);
+    do_num=widget.index;
+    init();
   }
 
-  void getCount(int index) async {
-    var i = 0;
-    while (i < 11) {
-      var result = await firestore.collection('${auth.currentUser?.uid}').doc(
-          "${data[i][1]}").get();
-      url_cheongju_List[i] = result['url'];
-      if(url_cheongju_List[i]!="")
-       { count++;}
-      i++;
-
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (_,index){
-            return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: MaterialButton(
             onPressed: (){Navigator.pop(context);},
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
-          title:Text('${data[index][1]}',style:TextStyle(
+          title:Text('${do_dogam_text[do_num]}',style:TextStyle(
             color:Colors.black,
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -79,7 +169,7 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
         body:Container(
               child: ListView.builder(
                 controller: dogam_si_album_controller,
-                itemCount: 11,
+                itemCount: items,
                 itemBuilder: (BuildContext context, int index) {
                   return Row(
                     children:<Widget> [
@@ -98,16 +188,17 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child:(
-                                        new Image.asset(
+                                        Image.asset(
                                           width: MediaQuery.of(context).size.width/20*19,
                                           height: MediaQuery.of(context).size.height/3,
-                                          '${chungbuk_si_dogam_image[index]}',
+                                          _ImgCSV(index),
                                           fit: BoxFit.fill,
                                         )
+
                                     ),
                                   ),
                                   onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>dogam_album_page(index: index,)));//navigator
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>dogam_album_page(si_num: index,do_num:do_num)));//navigator
                                   },
                                   padding:EdgeInsets.zero,
                                 ),
@@ -117,7 +208,7 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children:[
-                                      Text('${chungbuk_si_dogam_map.keys.elementAt(index)}',style:TextStyle(
+                                      Text( dogam_list(index),style:TextStyle(
                                         fontSize:30,
                                         color: Colors.white,
                                       )
@@ -132,18 +223,16 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                                     child: Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children:[
-                                          Text('${count}/${data.length}',style:TextStyle(
+                                          Text('0/14',style:TextStyle(
                                             fontSize: 30,
                                             color: Colors.white,
                                           )),
-
                                         ]
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-
                           ],
                         ),
                       ),
@@ -153,12 +242,9 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                   );
                 },
               ),
-            )
-            );
-          },
-        ),
-      ),
-    );;
+            ),
+            ),
+        );
   }
 }
 

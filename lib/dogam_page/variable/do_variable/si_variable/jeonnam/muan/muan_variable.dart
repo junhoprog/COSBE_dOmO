@@ -1,0 +1,30 @@
+Map<String,bool> Imagemap_muan = {
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_도리포.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_도리포유원지.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_목우암.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_무안 식영정.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_무안황토갯벌랜드.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_법천사.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_조금나루 유원지.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_홀통유원지.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_홀통해수욕장.jpg":false,
+  "assets/dogam_assets/Jeonnam/무안/전라남도_무안군_회산백련지.jpg":false,
+  };
+
+List <String> url_muan_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

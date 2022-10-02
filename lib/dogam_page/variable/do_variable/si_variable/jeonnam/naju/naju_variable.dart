@@ -1,0 +1,32 @@
+Map<String,bool> Imagemap_naju = {
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_국립나주박물관.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_나주 금성관.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_나주 목사내아 금학헌.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_나주 복암리 고분 전시관.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_나주배박물관.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_나주영상테마파크.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_남고문.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_남평 은행나무길.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_드들강솔밭유원지.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_빛가람전망대.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_빛가람호수공원.jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_서성문(영금문).jpg":false,
+  "assets/dogam_assets/Jeonnam/나주/전라남도_나주시_영산포 홍어거리.jpg":false
+};
+List <String> url_naju_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

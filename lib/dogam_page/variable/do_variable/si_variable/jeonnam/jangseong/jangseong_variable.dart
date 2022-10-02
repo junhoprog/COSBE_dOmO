@@ -1,0 +1,32 @@
+Map<String,bool> Imagemap_jangseong = {
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_국립장성치유의숲.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_남창계곡.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_내장산국립공원 백양사지구.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_대한불교조계종 백양사(白羊寺).jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_백양사 쌍계루(雙溪樓).jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_봉암서원.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_장성공원.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_장성호 관광지 관리사무소.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_장성호수변길.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_홍길동생가터.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_홍길동우드랜드.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_홍길동테마파크.jpg":false,
+  "assets/dogam_assets/Jeonnam/장성/전라남도_장성군_황룡강 생태공원.jpg":false
+};
+List <String> url_jangseong_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

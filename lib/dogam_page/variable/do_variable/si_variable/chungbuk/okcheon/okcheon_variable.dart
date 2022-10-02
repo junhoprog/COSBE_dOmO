@@ -1,0 +1,35 @@
+Map<String,bool> Imagemap_okcheon= {
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_금강유원지.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_부소담악(芙沼潭岳).jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_수생식물학습원.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_안터선사공원 (고인돌공원).jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_옥천 이지당.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_옥천 전통문화체험관.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_옥천선사공원.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_육영수생가.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_장계관광지.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_장령산 자연휴양림.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_정지용 문화원.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_정지용 시인 생가.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_청풍정.jpg":false,
+  "assets/dogam_assets/Chungbuk/옥천/충청북도_옥천군_추소정(楸沼亭).jpg":false,
+};
+
+
+List <String> url_okcheon_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];
