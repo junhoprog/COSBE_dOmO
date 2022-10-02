@@ -20,6 +20,12 @@ class _recommend_pageState extends State<recommend_page> {
         body: Stack(
             children : [
               Image.asset("assets/recommend_assets/mulhan.jpg",height: MediaQuery.of(context).size.height/10*6,fit: BoxFit.fitHeight,),
+              Positioned(
+                  top: 20,
+                  child: IconButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, icon: Icon(Icons.keyboard_arrow_left,size: 50,color: Colors.white,))
+              ),
               DraggableScrollableSheet(
                 initialChildSize: 0.5,
                   minChildSize: 0.5,

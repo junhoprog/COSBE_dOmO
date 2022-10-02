@@ -1,9 +1,15 @@
-import 'dart:developer';
 import 'package:cosbe_domo/home_page/home_variable.dart';
 import 'package:cosbe_domo/information_page/recommend_page.dart';
+import 'package:cosbe_domo/map_page/Marker.dart';
+import 'package:cosbe_domo/map_page/map_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
+<<<<<<< HEAD
 import 'package:cosbe_domo/dogam_page/variable/do_variable/chungbuk_variable/cheongju_variable.dart';
+=======
+import 'package:cosbe_domo/map_page/map_function.dart';
+
+>>>>>>> e091b56ec870ac34ab080d37194d61b712dd5e46
 class home_page extends StatefulWidget {
   const home_page({Key? key}) : super(key: key);
 
@@ -15,6 +21,11 @@ class _home_pageState extends State<home_page> {
 
   @override
   Widget build(BuildContext context) {
+    location.onLocationChanged.listen((l) async {
+        initLocationService(location);
+        marker_search();
+      }
+    );
     return MaterialApp(
       home: Scaffold(
         body: Stack(
@@ -287,6 +298,39 @@ class _home_pageState extends State<home_page> {
                                 ],
                               )),
                           SizedBox(height: MediaQuery.of(context).size.height/30),
+                          Container(
+                              child: Row(
+                                children: [
+                                  Flexible(flex: 1,fit: FlexFit.tight,child: SizedBox(),),
+                                  Flexible(flex:8,
+                                      child:Container(
+                                        height: MediaQuery.of(context).size.height/15,
+                                        child:MaterialButton(
+                                          padding: EdgeInsets.zero,
+                                          onPressed: (){
+                                            Navigator.push(context, 
+                                              MaterialPageRoute(builder: (context)=>map_page())
+                                            );
+                                          },
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(30),
+                                              color: Color(0xff656CFF),
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Text("내 위치",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15,height: 1),),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                  ),
+                                  Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
+                                ],
+                              )),
                         ],
                       ),
                     )

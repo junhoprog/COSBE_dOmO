@@ -50,6 +50,10 @@ dependencies:
   uuid: ^3.0.6
   firebase_auth: ^3.7.0
   fluttertoast: ^8.0.9
+  flutter_local_notifications: ^11.0.0
+  flutter_secure_storage: ^6.0.0
+  chaquopy: ^0.0.19
+  csv: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +74,16 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
+    - assets/csv_assets/
+    - assets/csv_assets/강원도/
+    - assets/csv_assets/경기도/
+    - assets/csv_assets/경상남도/
+    - assets/csv_assets/경상북도/
+    - assets/csv_assets/광역시/
+    - assets/csv_assets/전라남도/
+    - assets/csv_assets/전라북도/
+    - assets/csv_assets/충청남도/
+    - assets/csv_assets/충청북도/
     - assets/home_assets/
     - assets/dogam_assets/
     - assets/logo/
