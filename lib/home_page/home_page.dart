@@ -1,5 +1,6 @@
 import 'package:cosbe_domo/home_page/home_variable.dart';
 import 'package:cosbe_domo/information_page/recommend_page.dart';
+import 'package:cosbe_domo/map_page/Marker.dart';
 import 'package:cosbe_domo/map_page/map_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';

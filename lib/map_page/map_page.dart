@@ -57,7 +57,6 @@ class map_pageState extends State<map_page>  {
               ),
               onMapCreated:  (GoogleMapController controller) {
                 setState(() {
-                  addmap();
                   mapController = controller;
                   controller.setMapStyle('[{"featureType": "poi.park","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.business","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.government","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.place_of_worship","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.school","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.attraction","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "poi.medical","elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "landscape.natural","elementType": "labels.icon","stylers": [{"visibility": "off"}]},]');
                   location.onLocationChanged.listen((l) async{
@@ -66,7 +65,7 @@ class map_pageState extends State<map_page>  {
                   );
                 });
               },
-              markers: markerArray,
+              markers: marker_array,
               circles:Set.of((circles!=null)?[circles]:[]),
            ),
              Align(

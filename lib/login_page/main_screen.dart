@@ -1,3 +1,4 @@
+import 'package:cosbe_domo/map_page/map_function.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cosbe_domo/home_page/home_page.dart';
@@ -54,6 +55,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    add_marker();
+    add_marker_map();
     return Scaffold(
         body: ListView(children: [
       Column(
