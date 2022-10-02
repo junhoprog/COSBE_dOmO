@@ -36,12 +36,19 @@ class Chat extends StatelessWidget {
             );
           }
           final chatDocs = snapshot.data!.docs;
+          List<QueryDocumentSnapshot<Map<String, dynamic>>> chat_doc = [];
+          for (int i = 0; i < chatDocs.length; i++) {
+            if (chatDocs[i]['userID'].toString() == user!.uid ||
+                chatDocs[i]['userID'].toString() == user.uid + '/chatbot') {
+              chat_doc.add(chatDocs[i]);
+            }
+          }
           return ListView.builder(
             reverse: true,
-            itemCount: chatDocs.length,
+            itemCount: chat_doc.length,
             itemBuilder: (context, index) {
-              return ChatBubble(chatDocs[index]['text'],
-                  chatDocs[index]['userID'].toString() == user!.uid);
+              return ChatBubble(chat_doc[index]['text'],
+                  chat_doc[index]['userID'].toString() == user!.uid);
             },
           );
         });
