@@ -32,90 +32,51 @@ class dogam_do_album_page extends StatelessWidget {
                 {
                   if(index==8)
                     {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children:<Widget> [
-                          Column(
-                            children: [
-                              MaterialButton(
-                                child:ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child:(
-                                      new Image.asset(
-                                        width:MediaQuery.of(context).size.width/10*4,
-                                        height:MediaQuery.of(context).size.height/4,
-                                        '${do_dogam_image[index]}',
-                                        fit:BoxFit.fill,
-                                      )
+                      return Container(
+                        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width/15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children:<Widget> [
+                            Column(
+                              children: [
+                                MaterialButton(
+                                  child:ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child:(
+                                        new Image.asset(
+                                          width:MediaQuery.of(context).size.width/10*4,
+                                          height:MediaQuery.of(context).size.height/4,
+                                          '${do_dogam_image[index]}',
+                                          fit:BoxFit.fill,
+                                        )
+                                    ),
                                   ),
+                                  onPressed: (){
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index,))
+                                    );//navigator
+                                  },
+                                  padding:EdgeInsets.zero,
                                 ),
-                                onPressed: (){
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index,))
-                                  );//navigator
-                                },
-                                padding:EdgeInsets.zero,
-                              ),
-                              Container(
-                                width:MediaQuery.of(context).size.width/10*4,
-                                height: MediaQuery.of(context).size.height/20,
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children:[
-                                      Text('${do_dogam_text[index]}',style:TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold
-                                      )),
+                                Container(
+                                  width:MediaQuery.of(context).size.width/10*4,
+                                  height: MediaQuery.of(context).size.height/20,
+                                  child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children:[
+                                        Text('${do_dogam_text[index]}',style:TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold
+                                        )),
 
-                                    ]
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              MaterialButton(
-                                child:ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child:(
-                                      new Image.asset(
-                                        width:MediaQuery.of(context).size.width/10*4,
-                                        height:MediaQuery.of(context).size.height/4,
-                                        '${do_dogam_image[index+1]}',
-                                        fit:BoxFit.fill,
-                                      )
+                                      ]
                                   ),
                                 ),
-                                onPressed: (){
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context)=> dogam_si_album_page(index: index+1))
-                                  );//navigator
-                                },
-                                padding:EdgeInsets.zero,
-                              ),
-                              Container(
-                                width:MediaQuery.of(context).size.width/10*4,
-                                height: MediaQuery.of(context).size.height/20,
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children:[
-                                      Text('${do_dogam_text[index+1]}',style:TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold
-                                      )),
-                                    ]
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children:<Widget>[
-                              Container(),
-                            ]
+                              ],
                             ),
-                        ],
+                          ],
+                        ),
                       );
                     }
                   else{

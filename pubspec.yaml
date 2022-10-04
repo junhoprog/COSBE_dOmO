@@ -75,6 +75,7 @@ flutter:
     - assets/
     - assets/home_assets/
     - assets/dogam_assets/
+    - assets/dogam_assets/do_assets/
     - assets/logo/
     - assets/mypage_assets/
     - assets/recommend_assets/
@@ -88,7 +89,8 @@ flutter:
     - assets/csv_assets/경상남도/
     - assets/csv_assets/전라북도/
     - assets/csv_assets/강원도/
-    - assets/dogam_assets/Do_assets/
+    - assets/dogam_assets/
+    - assets/dogam_assets/do_assets/
     - assets/dogam_assets/Chungbuk/Si_assets/
     - assets/dogam_assets/Chungbuk/Cheongju/
     - assets/dogam_assets/Chungbuk/괴산/

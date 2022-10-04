@@ -6,11 +6,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosbe_domo/login_page/main_screen.dart';
 import 'package:cosbe_domo/map_page/map_page.dart';
 import 'package:location/location.dart';
+import 'loading_page/loading_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
-    home: LoginSignupScreen(),
+    home: loading_page(),
   ));
 }

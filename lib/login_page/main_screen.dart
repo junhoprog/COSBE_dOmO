@@ -55,9 +55,6 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    add_marker();
-    add_marker_map();
     return Scaffold(
         body: ListView(children: [
       Column(

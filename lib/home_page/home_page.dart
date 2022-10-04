@@ -17,6 +17,8 @@ class _home_pageState extends State<home_page> {
 
   @override
   Widget build(BuildContext context) {
+    print(marker_map["용화사"]);
+    print(marker_map["청주중앙공원"]);
     location.onLocationChanged.listen((l) async {
         initLocationService(location);
         marker_search();
