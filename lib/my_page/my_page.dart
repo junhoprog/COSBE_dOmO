@@ -2,6 +2,7 @@ import 'package:cosbe_domo/chatbot_page/chatbot.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
 import 'package:cosbe_domo/chatbot_page/chat.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class my_page extends StatelessWidget {
   const my_page({Key? key}) : super(key: key);
