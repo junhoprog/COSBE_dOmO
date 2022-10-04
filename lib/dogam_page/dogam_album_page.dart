@@ -1773,10 +1773,7 @@ class _dogam_albumState extends State<dogam_album_page> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: ListView.builder(
-            itemCount: data.length,//csv관광지개수
-            itemBuilder: (_,index){
-              return Column(
+          body: Column(
                 children: [
                   Container(
                     width: double.infinity,
@@ -1820,7 +1817,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                     child: ListView.builder(
                         controller: dogam_album_controller,
                         scrollDirection: Axis.horizontal,
-                        itemCount: data.length,
+                        itemCount: data.length-1,
                         itemBuilder: (context, index) {
                           return Container(
                             margin: EdgeInsets.only(left: 20),
@@ -1911,9 +1908,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                     ),
                   ),
                 ],
-              );
-            },
-          )
+              ),
       ),
     );
   }
