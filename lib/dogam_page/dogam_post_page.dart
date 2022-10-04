@@ -38,7 +38,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
     final _rawData;
     List<List<dynamic>> _listData;
 
-    if (widget.do_num == 1) {
+    if (widget.do_num == 0) {
       final _rawData = await rootBundle.loadString(
           csv_gwangyeog_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -47,7 +47,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
       });
     }
 
-    else if (widget.do_num == 2) {
+    else if (widget.do_num == 1) {
       final _rawData = await rootBundle.loadString(
           csv_gyeonggi_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -55,7 +55,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 3) {
+    else if (widget.do_num == 2) {
       final _rawData = await rootBundle.loadString(
           csv_chungbuk_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -63,7 +63,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 4) {
+    else if (widget.do_num == 3) {
       final _rawData = await rootBundle.loadString(
           csv_jeonbuk_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -71,7 +71,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 5) {
+    else if (widget.do_num == 4) {
       final _rawData = await rootBundle.loadString(
           csv_gangwon_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -79,7 +79,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 6) {
+    else if (widget.do_num == 5) {
       final _rawData = await rootBundle.loadString(
           csv_gyeongbuk_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -87,7 +87,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 7) {
+    else if (widget.do_num == 6) {
       final _rawData = await rootBundle.loadString(
           csv_gyeongnam_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -95,7 +95,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 8) {
+    else if (widget.do_num == 7) {
       final _rawData = await rootBundle.loadString(
           csv_chungnam_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -103,7 +103,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
         data = _listData;
       });
     }
-    else if (widget.do_num == 9) {
+    else if (widget.do_num == 8) {
       final _rawData = await rootBundle.loadString(
           csv_jeonnam_List[widget.si_num]);
       _listData = const CsvToListConverter().convert(_rawData);
@@ -118,32 +118,262 @@ class _dogam_post_pageState extends State<dogam_post_page> {
   }
 
   GetDataview(int index) async {
-    result=await firestore
-        .collection('${do_dogam_text[widget.do_num]}')
-        .doc(gwangyeok_dogam_list[widget.si_num])
-        .collection('${data[index][1]}')
-        .doc('${auth.currentUser?.uid}').get();
+       if(widget.do_num==0){
+        result=await firestore
+        .collection('${auth.currentUser?.uid}')
+        .doc('${do_dogam_text[widget.do_num]}')
+        .collection(gwangyeok_dogam_list[widget.si_num])
+        .doc('${data[index][1]}').get();
     url=result['url'];
     return url;
+       }
+       else if(widget.do_num==1){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(gyeonggi_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==2){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(chungbuk_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==3){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(jeonbuk_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==4){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(gangwon_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==5){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(gyeongbuk_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==6){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(gyeongnam_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==7){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(chungnam_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
+       else if(widget.do_num==8){
+         result=await firestore
+             .collection('${auth.currentUser?.uid}')
+             .doc('${do_dogam_text[widget.do_num]}')
+             .collection(jeonnam_dogam_list[widget.si_num])
+             .doc('${data[index][1]}').get();
+         url=result['url'];
+         return url;
+       }
   }
-  GetDataview2(int index) async {
 
-    result=await firestore
-        .collection('${do_dogam_text[widget.do_num]}')
-        .doc(gwangyeok_dogam_list[widget.si_num])
-        .collection('${data[index][1]}')
-        .doc('${auth.currentUser?.uid}').get();
+  GetDataview2(int index) async {
+    if(widget.do_num==0){
+      result=await firestore
+        .collection('${auth.currentUser?.uid}')
+        .doc('${do_dogam_text[widget.do_num]}')
+        .collection(gwangyeok_dogam_list[widget.si_num])
+        .doc('${data[index][1]}').get();
     title=result['title'];
     return title;
+    }
+    else if(widget.do_num==1)
+      {
+        result=await firestore
+            .collection('${auth.currentUser?.uid}')
+            .doc('${do_dogam_text[widget.do_num]}')
+            .collection(gyeonggi_dogam_list[widget.si_num])
+            .doc('${data[index][1]}').get();
+        title=result['title'];
+        return title;
+      }
+    else if(widget.do_num==2)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(chungbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==3)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(jeonbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==4)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gangwon_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==5)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gyeongbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==6)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gyeongnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==7)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(chungnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
+    else if(widget.do_num==8)
+    {
+      result=await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(jeonnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      title=result['title'];
+      return title;
+    }
   }
   GetDataview3(int index) async {
-    result=await firestore
-        .collection('${do_dogam_text[widget.do_num]}')
-        .doc(gwangyeok_dogam_list[widget.si_num])
-        .collection('${data[index][1]}')
-        .doc('${auth.currentUser?.uid}').get();
-    description=result['description'];
-    return description;
+    if(widget.do_num==0) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gwangyeok_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==1) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gyeonggi_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==2) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(chungbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==3) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(jeonbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==4) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gangwon_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==5) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gyeongbuk_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==6) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(gyeongnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==7) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(chungnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
+    else if(widget.do_num==8) {
+      result = await firestore
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection(jeonnam_dogam_list[widget.si_num])
+          .doc('${data[index][1]}').get();
+      description = result['description'];
+      return description;
+    }
   }
 
   @override

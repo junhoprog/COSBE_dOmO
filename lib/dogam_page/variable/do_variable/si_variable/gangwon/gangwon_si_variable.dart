@@ -18,7 +18,26 @@ List <String> gangwon_dogam_list=[
   '화천',
   '횡성',
 ];
-
+List <int> gangwon_dogam_num=[
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+13,
+14,
+13,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+];
 List <String> csv_gangwon_List=[
   "assets/csv_assets/강원도/강원도_강릉시.csv",
   "assets/csv_assets/강원도/강원도_고성군.csv",

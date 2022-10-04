@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/do_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/chungbuk_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungnam/chungnam_si_variable.dart';
@@ -9,6 +10,7 @@ import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/j
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/gyeongnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonnam/jeonnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/dogam_variable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import'package:flutter/material.dart';
 import 'dogam_album_page.dart';
 
@@ -22,7 +24,12 @@ final int index;
 class _dogam_si_album_pageState extends State<dogam_si_album_page> {
   var do_num;
   int items=1;
+  String s="";
+  var result;
+  final firestore=FirebaseFirestore.instance;
+  List<int>num=[];
 
+  final auth = FirebaseAuth.instance;
   String _ImgCSV(int index) {
     if(do_num==0)
     {
@@ -142,6 +149,98 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
     }
   }
 
+ Future register_dogam(int index) async{
+        if(do_num==0)
+          {
+            var result= await firestore
+                .collection('${auth.currentUser?.uid}')
+                .doc('${do_dogam_text[do_num]}')
+                .collection(gwangyeok_dogam_list[index]).get();
+           int num=result.docs.length;
+           s="${num}/${gwangyeog_dogam_num[index]}";
+           return s;
+          }
+        else if(do_num==1)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(gyeonggi_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${gyeonggi_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==2)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(chungbuk_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${chungbuk_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==3)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(jeonbuk_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${jeonbuk_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==4)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(gangwon_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${gangwon_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==5)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(gyeongbuk_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${gyeongbuk_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==6)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(gyeongnam_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${gyeongnam_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==7)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(chungnam_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${chungnam_dogam_num[index]}";
+          return s;
+        }
+        else if(do_num==8)
+        {
+          var result= await firestore
+              .collection('${auth.currentUser?.uid}')
+              .doc('${do_dogam_text[do_num]}')
+              .collection(jeonnam_dogam_list[index]).get();
+          int num=result.docs.length;
+          s="${num}/${jeonnam_dogam_num[index]}";
+          return s;
+        }
+  }
   @override
   void initState(){
     do_num=widget.index;
@@ -219,16 +318,33 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                                 Positioned(
                                   bottom:10,
                                   right: 10,
-                                  child: Container(
+                                  child: FutureBuilder(
+                                  future: register_dogam(index),
+                                  builder:(BuildContext context,AsyncSnapshot snapshot)=>
+                                  snapshot.hasData
+                                 ? Container(
                                     child: Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children:[
-                                          Text('0/14',style:TextStyle(
+                                          Text(s,style:TextStyle(
                                             fontSize: 30,
                                             color: Colors.white,
                                           )),
                                         ]
                                     ),
+                                  )
+                                      :Container(
+                                    child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children:[
+                                          Text("2/14",style:TextStyle(
+                                            fontSize: 30,
+                                            color: Colors.white,
+                                          )),
+                                        ]
+                                    ),
+                                  )
+
                                   ),
                                 ),
                               ],

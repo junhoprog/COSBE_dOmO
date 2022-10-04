@@ -10,6 +10,18 @@ List<String> gwangyeog_dogam_image=[
 'assets/dogam_assets/gwangyeok/Si_assets/광역시_인천.jpg',
 'assets/dogam_assets/gwangyeok/Si_assets/광역시_제주.jpg',
 ];
+List <int> gwangyeog_dogam_num=[
+14,
+14,
+14,
+14,
+14,
+13,
+14,
+14,
+14
+];
+
 List<String> gwangyeok_dogam_list=[
 '광주',
 '대구',

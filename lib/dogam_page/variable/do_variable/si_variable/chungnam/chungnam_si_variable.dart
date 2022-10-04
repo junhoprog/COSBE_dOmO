@@ -33,6 +33,23 @@ List <String> chungnam_dogam_list=[
 '홍성',
 '태안'
 ];
+List <int> chungnam_dogam_num=[
+14,
+14,
+14,
+13,
+13,
+14,
+13,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14
+];
 List <String> csv_chungnam_List=[
   "assets/csv_assets/충청남도/충청남도_계룡시.csv",
   "assets/csv_assets/충청남도/충청남도_공주시.csv",

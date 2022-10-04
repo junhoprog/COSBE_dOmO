@@ -23,6 +23,32 @@ List<String> gyeongbuk_dogam_image=[
 "assets/dogam_assets/gyeongbuk/Si_assets/경상북도_칠곡.jpg",
 "assets/dogam_assets/gyeongbuk/Si_assets/경상북도_포항.jpg",
 ];
+List  <int> gyeongbuk_dogam_num=[
+  13,
+  14,
+  14,
+  14,
+  14,
+  14,
+  14,
+  14,
+  13,
+  13,
+  14,
+  14,
+  13,
+  13,
+  13,
+  14,
+  14,
+  14,
+  13,
+  13,
+  14,
+  14,
+  14,
+];
+
 List<String> gyeongbuk_dogam_list=[
 '경산',
 '경주',

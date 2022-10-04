@@ -22,6 +22,30 @@ List<String> jeonnam_dogam_image=[
   "assets/dogam_assets/Jeonnam/Si_assets/전라남도_해남.jpg",
   "assets/dogam_assets/Jeonnam/Si_assets/전라남도_화순.jpg"
 ];
+List <int> jeonnam_dogam_num=[
+  14,
+  13,
+  13,
+  14,
+  14,
+  13,
+  13,
+  14,
+  10,
+  12,
+  13,
+  13,
+  14,
+  14,
+  13,
+  14,
+  13,
+  14,
+  13,
+  12,
+  14,
+  14,
+];
 List<String> jeonnam_dogam_list=[
 '강진',
 '고흥',

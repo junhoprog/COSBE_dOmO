@@ -10,6 +10,25 @@ List<String> gyeongnam_dogam_image=[
 "assets/dogam_assets/gyeongnam/Si_assets/경상남도_통영.jpg",
 "assets/dogam_assets/gyeongnam/Si_assets/경상남도_함안.jpg",
 ];
+List  <int> gyeongnam_dogam_num=[
+14,
+13,
+14,
+11,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14,
+14
+];
 List<String> gyeongnam_dogam_list=[
 '거제',
 '거창',

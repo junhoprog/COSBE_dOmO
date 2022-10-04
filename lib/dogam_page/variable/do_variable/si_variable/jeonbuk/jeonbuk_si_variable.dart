@@ -14,6 +14,22 @@ List<String> jeonbuk_dogam_image=[
   "assets/dogam_assets/Jeonbuk/Si_assets/전라북도_정읍.jpg",
   "assets/dogam_assets/Jeonbuk/Si_assets/전라북도_진안.jpg",
 ];
+List<int> jeonbuk_dogam_num=[
+  13,
+  14,
+  14,
+  14,
+  14,
+  13,
+  14,
+  14,
+  14,
+  14,
+  14,
+  14,
+  13,
+  14,
+];
 List<String> jeonbuk_dogam_list=[
 '고창',
 '군산',

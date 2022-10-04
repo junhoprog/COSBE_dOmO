@@ -133,7 +133,7 @@ class _upload_pageState extends State<upload_page> {
     if(widget.do_num==0)
     {
     filename=index;
-    final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+    final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${gwangyeok_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
     // 파일 업로드
     final uploadTask = firebaseStorageRef.putFile(
     images
@@ -142,16 +142,17 @@ class _upload_pageState extends State<upload_page> {
     url= await firebaseStorageRef.getDownloadURL();
     url_cheongju_List[index]=url;
     firestore
-        .collection('${do_dogam_text[widget.do_num]}')
-        .doc('${gwangyeok_dogam_list[widget.si_num]}')
-        .collection('${data[index][1]}')
-        .doc('${auth.currentUser?.uid}')
+        .collection('${auth.currentUser?.uid}')
+        .doc('${do_dogam_text[widget.do_num]}')
+        .collection('${gwangyeok_dogam_list[widget.si_num]}')
+        .doc('${data[index][1]}')
         .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
     }
     else if(widget.do_num==1)
     {
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${gyeonggi_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
       );
@@ -159,16 +160,17 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${gyeonggi_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${gyeonggi_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
     }
     else if(widget.do_num==2)
     {
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${chungbuk_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
       );
@@ -176,17 +178,16 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${chungbuk_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${chungbuk_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
-
     }
     else if(widget.do_num==3)
     {
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonbuk_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
       // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
@@ -195,17 +196,17 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc(jeonbuk_dogam_list[widget.si_num])
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${jeonbuk_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+
     }
     else if(widget.do_num==4)
     {
-
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${gangwon_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
       // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
@@ -214,17 +215,17 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${gangwon_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${gangwon_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+
     }
     else if(widget.do_num==5)
     {
-
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${gyeongbuk_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
       // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
@@ -233,17 +234,18 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${gyeongbuk_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${gyeongbuk_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+
     }
     else if(widget.do_num==6)
     {
-
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${gyeongnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
       );
@@ -251,15 +253,16 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${gyeongnam_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${gyeongnam_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
     }
     else if(widget.do_num==7)    {
       filename=index;
-      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${jeonnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      final firebaseStorageRef = storage.ref().child('${auth.currentUser?.uid}').child('${do_dogam_text[widget.do_num]}').child('${chungnam_dogam_list[widget.si_num]}/${data[widget.si_num][1]}.png');
+      // 파일 업로드
       final uploadTask = firebaseStorageRef.putFile(
           images
       );
@@ -267,11 +270,12 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${chungnam_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${chungnam_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
           .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+
     }
     else if(widget.do_num==8)
     {
@@ -285,11 +289,11 @@ class _upload_pageState extends State<upload_page> {
       url= await firebaseStorageRef.getDownloadURL();
       url_cheongju_List[index]=url;
       firestore
-          .collection('${do_dogam_text[widget.do_num]}')
-          .doc('${jeonnam_dogam_list[widget.si_num]}')
-          .collection('${data[index][1]}')
-          .doc('${auth.currentUser?.uid}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','marker':'${marker}'});
+          .collection('${auth.currentUser?.uid}')
+          .doc('${do_dogam_text[widget.do_num]}')
+          .collection('${jeonnam_dogam_list[widget.si_num]}')
+          .doc('${data[index][1]}')
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
     }
   }
 
@@ -348,15 +352,10 @@ class _upload_pageState extends State<upload_page> {
                       ),
                     )
 
-                        : Image.file(images),
-
-                    Container(
+                        : Container(
                       width: MediaQuery.of(context).size.width/3*2,
-                      height: MediaQuery.of(context).size.height/20,
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text("1/5",style: TextStyle(fontSize: 20),),
-                      ),
+                      height: MediaQuery.of(context).size.height/3,
+                      child:Image.file(images),
                     ),
 
                     Container(
