@@ -1,9 +1,9 @@
 List<String> do_dogam_image=[
-  'assets/dogam_assets/do_assets/seoul.jpg',
+  "assets/dogam_assets/do_assets/seoul.jpg",
   'assets/dogam_assets/do_assets/gyeonggi.png',
   'assets/dogam_assets/do_assets/chungbuk.jpg',
   'assets/dogam_assets/do_assets/jeonbuk.jpg',
-  'assets/dogam_assets/do_assets/gangwon.jpg',
+  "assets/dogam_assets/do_assets/gangwon.jpg",
   'assets/dogam_assets/do_assets/gyeongbuk.jpg',
   'assets/dogam_assets/do_assets/gyeongnam.jpg',
   'assets/dogam_assets/do_assets/chungnam.jpg',

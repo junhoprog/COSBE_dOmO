@@ -77,7 +77,7 @@ class map_pageState extends State<map_page>  {
                       CameraUpdate.newCameraPosition(
                           CameraPosition(
                               target: LatLng(current_latitude,current_longitude),
-                              zoom: 8
+                              zoom: 15
                           )
                       ),
                   );

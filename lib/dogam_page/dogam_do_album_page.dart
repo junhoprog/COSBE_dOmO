@@ -46,7 +46,7 @@ class dogam_do_album_page extends StatelessWidget {
                                 new Image.asset(
                                   width:MediaQuery.of(context).size.width/10*4,
                                   height:MediaQuery.of(context).size.height/4,
-                                  '${do_dogam_image[index]}',
+                                  "${do_dogam_image[index]}",
                                   fit:BoxFit.fill,
                                 )
                                 ),
