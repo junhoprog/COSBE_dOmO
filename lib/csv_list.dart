@@ -9,6 +9,7 @@ String jeonbuk="assets/csv_assets/전라북도/전라북도_";
 String chungnam="assets/csv_assets/충청남도/충청남도_";
 String chungbuk="assets/csv_assets/충청북도/충청북도_";
 
+
 List<List<String>> csv_List=[
   csv_gangwon_List,
   csv_gyeonggi_List,
@@ -18,7 +19,7 @@ List<List<String>> csv_List=[
   csv_jeonnam_List,
   csv_jeonbuk_List,
   csv_chungnam_List,
-  csv_chungbuk_List
+  csv_chungbuk_List,
 ];
 
 List <String> csv_gangwon_List=[
@@ -35,7 +36,10 @@ List <String> csv_gangwon_List=[
   gangwon+"정선군.csv",
   gangwon+"철원군.csv",
   gangwon+"춘천시.csv",
-  gangwon+"태백시.csv",
+  gangwon+"평창군.csv",
+  gangwon+"홍천군.csv",
+  gangwon+"화천군.csv",
+  gangwon+"횡성군.csv",
 ];
 List <String> csv_gyeonggi_List=[
   gyeonggi+"가평군.csv",
@@ -191,15 +195,15 @@ List <String> csv_chungnam_List=[
 ];
 
 List <String> csv_chungbuk_List=[
-  "assets/csv_assets/충청북도/충청북도_괴산군.csv",
-  "assets/csv_assets/충청북도/충청북도_단양군.csv",
-  "assets/csv_assets/충청북도/충청북도_보은군.csv",
-  "assets/csv_assets/충청북도/충청북도_영동군.csv",
-  "assets/csv_assets/충청북도/충청북도_옥천군.csv",
-  "assets/csv_assets/충청북도/충청북도_음성군.csv",
-  "assets/csv_assets/충청북도/충청북도_제천시.csv",
-  "assets/csv_assets/충청북도/충청북도_증평군.csv",
-  "assets/csv_assets/충청북도/충청북도_진천군.csv",
-  "assets/csv_assets/충청북도/충청북도_청주시.csv",
-  "assets/csv_assets/충청북도/충청북도_충주시.csv",
+  chungbuk+"괴산군.csv",
+  chungbuk+"단양군.csv",
+  chungbuk+"보은군.csv",
+  chungbuk+"영동군.csv",
+  chungbuk+"옥천군.csv",
+  chungbuk+"음성군.csv",
+  chungbuk+"제천시.csv",
+  chungbuk+"증평군.csv",
+  chungbuk+"진천군.csv",
+  chungbuk+"청주시.csv",
+  chungbuk+"충주시.csv",
 ];

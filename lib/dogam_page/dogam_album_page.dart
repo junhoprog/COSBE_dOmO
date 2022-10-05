@@ -1831,14 +1831,13 @@ class _dogam_albumState extends State<dogam_album_page> {
                                           ? Stack(
                                         children: [
                                           ColorFiltered(
-                                              colorFilter: ColorFilter.mode(markermap.values.elementAt(index)==true ? Colors.grey : Colors.transparent, BlendMode.saturation),
+                                              colorFilter: ColorFilter.mode(marker_map["${data[index][1].toString()}"] == true ? Colors.transparent : Colors.grey, BlendMode.saturation),
                                               child: MaterialButton(
                                                 padding: EdgeInsets.zero,
                                                 onPressed:
-                                                markermap.values.elementAt(index)== true ?
+                                                marker_map["${data[index][1].toString()}"] == true ?
                                                     (){
-
-                                                  Navigator.push(context,
+                                                      Navigator.push(context,
                                                       MaterialPageRoute(builder: (context)=>upload_page(index:index,si_num:widget.si_num,do_num:widget.do_num))
                                                   );
                                                 }
