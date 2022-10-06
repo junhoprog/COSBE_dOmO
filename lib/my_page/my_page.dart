@@ -27,12 +27,30 @@ class my_page extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Container(
-                          padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width / 10),
-                          child: Text("이동율님 환영합니다."))),
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 10,right:MediaQuery.of(context).size.width / 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            child: Text("이동율님 환영합니다.")
+                        ),
+                        Container(
+                          height: 30,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            color: Color(0xff656CFF),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: MaterialButton(
+                            padding: EdgeInsets.zero,
+                              onPressed: (){},
+                            child: Text("로그아웃",style: TextStyle(color: Colors.white),),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                   Container(
                     padding: EdgeInsets.all(5),
                     margin: EdgeInsets.only(
@@ -110,7 +128,9 @@ class my_page extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ChatBot()));
+                                        builder: (context) => ChatBot()
+                                    )
+                                );
                               },
                             ),
                             Text("챗봇"),
@@ -118,9 +138,42 @@ class my_page extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Icon(
-                              Icons.currency_bitcoin,
-                              size: MediaQuery.of(context).size.width / 5,
+                            IconButton(
+                              iconSize: MediaQuery.of(context).size.width / 5,
+                              onPressed: (){
+                                showDialog<void>(
+                                  context: context,
+                                  barrierDismissible: false,
+                                  // user must tap button!
+                                  builder: (
+                                      BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text("포인트샵"),
+                                      content: SingleChildScrollView(
+                                        child: ListBody(
+                                          children: [
+                                            Text('아직 포인트샵이 준비중입니다!'),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: const Text('네'),
+                                          onPressed: () {
+                                            Navigator.of(
+                                                context)
+                                                .pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              icon: Icon(
+                                Icons.currency_bitcoin,
+                                size: MediaQuery.of(context).size.width / 5,
+                              ),
                             ),
                             Row(
                               children: [
@@ -135,11 +188,48 @@ class my_page extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Icon(
-                              Icons.photo_album_outlined,
-                              size: MediaQuery.of(context).size.width / 5,
+                            IconButton(
+                              iconSize: MediaQuery.of(context).size.width / 5,
+                              onPressed: (){
+                                showDialog<void>(
+                                  context: context,
+                                  barrierDismissible: false,
+                                  // user must tap button!
+                                  builder: (
+                                      BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text("앨범 제작"),
+                                      content: SingleChildScrollView(
+                                        child: ListBody(
+                                          children: [
+                                            Text('아직 앨범 제작이 준비중입니다!'),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: const Text('네'),
+                                          onPressed: () {
+                                            Navigator.of(
+                                                context)
+                                                .pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              icon: Icon(
+                                Icons.photo_album_outlined,
+                                size: MediaQuery.of(context).size.width / 5,
+                              ),
                             ),
-                            Text("앨범 제작"),
+                            Row(
+                              children: [
+                                Text("앨범 제작"),
+                              ],
+                            )
                           ],
                         ),
                       ],
@@ -211,8 +301,7 @@ class my_page extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 40),
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 40),
                     width: MediaQuery.of(context).size.width / 10 * 8,
                     decoration: BoxDecoration(
                         border: Border(
@@ -233,8 +322,7 @@ class my_page extends StatelessWidget {
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios,
-                            size: 30, color: Colors.grey),
+                        Icon(Icons.arrow_forward_ios, size: 30, color: Colors.grey),
                       ],
                     ),
                   ),

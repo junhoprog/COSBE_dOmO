@@ -122,7 +122,6 @@ Future inNotification(dynamic spot) async {
 
 Future add_marker()async{
   for(int i=0;i<csv_List.length;i++){
-    if(i==8) print("${csv_List[i]}");
     for(int j=0;j<csv_List[i].length;j++){
       final _rawData = await rootBundle.loadString(csv_List[i][j]);
       List<List<dynamic>> _listData =
@@ -135,7 +134,6 @@ Future add_marker()async{
 }
 
 Future add_marker_map()async{
-  print(marker_array.length);
   for(int i=0;i<marker_array.length;i++){
     marker_map[marker_array.elementAt(i).markerId.value.toString()]=false;
   }

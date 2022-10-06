@@ -1867,10 +1867,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                           BuildContext context) {
                                                         return AlertDialog(
                                                           title: Text(
-                                                              data[widget
-                                                                  .si_num +
-                                                                  1][1]
-                                                                  .toString()),
+                                                              "${data[index][1].toString()}"),
                                                           content: SingleChildScrollView(
                                                             child: ListBody(
                                                               children: [
