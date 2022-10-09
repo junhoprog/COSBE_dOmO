@@ -1,13 +1,13 @@
 List<String> do_dogam_image=[
-  "assets/dogam_assets/do_assets/seoul.jpg",
-  'assets/dogam_assets/do_assets/gyeonggi.png',
-  'assets/dogam_assets/do_assets/chungbuk.jpg',
-  'assets/dogam_assets/do_assets/jeonbuk.jpg',
-  "assets/dogam_assets/do_assets/gangwon.jpg",
-  'assets/dogam_assets/do_assets/gyeongbuk.jpg',
-  'assets/dogam_assets/do_assets/gyeongnam.jpg',
-  'assets/dogam_assets/do_assets/chungnam.jpg',
-  'assets/dogam_assets/do_assets/jeonnam.jpg'
+  "assets/dogam_assets/do_image_assets/seoul.jpg",
+  'assets/dogam_assets/do_image_assets/gyeonggi.png',
+  'assets/dogam_assets/do_image_assets/chungbuk.jpg',
+  'assets/dogam_assets/do_image_assets/jeonbuk.jpg',
+  "assets/dogam_assets/do_image_assets/gangwon.jpg",
+  'assets/dogam_assets/do_image_assets/gyeongbuk.jpg',
+  'assets/dogam_assets/do_image_assets/gyeongnam.jpg',
+  'assets/dogam_assets/do_image_assets/chungnam.jpg',
+  'assets/dogam_assets/do_image_assets/jeonnam.jpg'
 ];
 
 List<String> do_dogam_text=[
