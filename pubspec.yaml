@@ -73,6 +73,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/home_assets/
+    - assets/chat_assets/
     - assets/dogam_assets/do_assets/
     - assets/dogam_assets/do_image_assets/
     - assets/logo/

@@ -10,7 +10,11 @@ class ChatBot extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Color(0xff656CFF),
+          title: Text("dOmO"),
+          centerTitle: true,
+        ),
         body: Container(
           child: Column(
             children: [

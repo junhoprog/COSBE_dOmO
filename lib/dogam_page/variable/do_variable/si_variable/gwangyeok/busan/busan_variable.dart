@@ -12,6 +12,7 @@ Map<String,bool> Imagemap_busan = {
   "assets/dogam_assets/gwangyeok/부산/광역시_부산_국제시장.jpg":false,
   "assets/dogam_assets/gwangyeok/부산/광역시_부산_168계단.jpg":false,
   "assets/dogam_assets/gwangyeok/부산/광역시_부산_아미산 전망대.jpg":false,
+  "assets/dogam_assets/gwangyeok/부산/광역시_부산_광안대교.jpg":false,
 };
 
 

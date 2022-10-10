@@ -125,7 +125,7 @@ List <String> csv_gyeonggi_List=[
   "assets/csv_assets/경기도/경기도_의정부시.csv",
   "assets/csv_assets/경기도/경기도_이천시.csv",
   "assets/csv_assets/경기도/경기도_파주시.csv",
-  "assets/csv_assets/경기도/경기도_평택군.csv",
+  "assets/csv_assets/경기도/경기도_평택시.csv",
   "assets/csv_assets/경기도/경기도_포천시.csv",
   "assets/csv_assets/경기도/경기도_하남시.csv",
   "assets/csv_assets/경기도/경기도_화성시.csv",

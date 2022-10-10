@@ -2,6 +2,8 @@ import 'package:cosbe_domo/information_page/information_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../dogam_page/variable/do_variable/si_variable/chungbuk/yeongdong/yeongdong_variable.dart';
+
 class recommend_page extends StatefulWidget {
   const recommend_page({Key? key}) : super(key: key);
 
@@ -154,7 +156,7 @@ class _recommend_pageState extends State<recommend_page> {
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       controller: scrollController,
-                                      itemCount: 10,
+                                      itemCount: Imagemap_yeongdong.length-1,
                                       itemBuilder: (context,index){
                                         return Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -169,23 +171,27 @@ class _recommend_pageState extends State<recommend_page> {
                                                         Image.asset(
                                                           width:MediaQuery.of(context).size.width/100*40,
                                                           height:MediaQuery.of(context).size.height/5,
-                                                          'assets/recommend_assets/mulhan.jpg',
+                                                          Imagemap_yeongdong.keys.elementAt(index),
                                                           fit:BoxFit.fill,
                                                         )
                                                     ),
                                                   ),
-                                                  onPressed: (){},
+                                                  onPressed: (){
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(builder: (context)=>information_page(index: 0,))
+                                                    );
+                                                  },
                                                 ),
                                                 Container(
                                                 width:MediaQuery.of(context).size.width/100*40,
                                                   child: Column(
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
-                                                      Text("물한계곡",style: TextStyle(fontWeight: FontWeight.bold),),
+                                                      Text("용두정",style: TextStyle(fontWeight: FontWeight.bold),),
                                                       Row(
                                                         children: [
                                                           Icon(Icons.location_on_outlined,color: Colors.grey[600],),
-                                                          Text("영동군 상촌면",style: TextStyle(color: Colors.grey[600]),)
+                                                          Text("영동군 영동읍",style: TextStyle(color: Colors.grey[600]),)
                                                         ],
                                                       )
                                                     ],
@@ -203,14 +209,14 @@ class _recommend_pageState extends State<recommend_page> {
                                                         Image.asset(
                                                           width:MediaQuery.of(context).size.width/100*40,
                                                           height:MediaQuery.of(context).size.height/5,
-                                                          'assets/recommend_assets/rainbow2.jpg',
+                                                          Imagemap_yeongdong.keys.elementAt(index+1),
                                                           fit:BoxFit.fill,
                                                         )
                                                     ),
                                                   ),
                                                   onPressed: (){
                                                     Navigator.push(context,
-                                                      MaterialPageRoute(builder: (context)=>information_page())
+                                                      MaterialPageRoute(builder: (context)=>information_page(index: 1,))
                                                     );
                                                   },
                                                 ),
@@ -219,11 +225,11 @@ class _recommend_pageState extends State<recommend_page> {
                                                   child: Column(
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
-                                                      Text("레인보우 영화관",style: TextStyle(fontWeight: FontWeight.bold),),
+                                                      Text("난계국악박물관",style: TextStyle(fontWeight: FontWeight.bold),),
                                                       Row(
                                                         children: [
                                                           Icon(Icons.location_on_outlined,color: Colors.grey[600],),
-                                                          Text("영동군 영동읍",style: TextStyle(color: Colors.grey[600]),)
+                                                          Text("영동군 심천면",style: TextStyle(color: Colors.grey[600]),)
                                                         ],
                                                       )
                                                     ],
@@ -234,6 +240,17 @@ class _recommend_pageState extends State<recommend_page> {
                                           ],
                                         );
                                       }
+                                  );
+                                }
+                                if(current_tap==2){
+                                  return Container(
+                                    padding: EdgeInsets.all(10),
+                                    height: MediaQuery.of(context).size.height/5,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.grey[300]
+                                    ),
+                                    child: Center(child: Text("아직 리뷰가 없습니다.")),
                                   );
                                 }
                               }()),

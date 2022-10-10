@@ -1,9 +1,26 @@
+import 'package:csv/csv.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../csv_list.dart';
+import '../dogam_page/variable/do_variable/si_variable/chungbuk/yeongdong/yeongdong_variable.dart';
+
+String title="";
+String description="";
+String adress="";
+
+Future read_csv_information(int index) async{
+  final _rawData = await rootBundle.loadString(csv_List[8][3]);
+  List<List<dynamic>> _listData =
+  const CsvToListConverter().convert(_rawData,eol: "\n",allowInvalid: true);
+  title=_listData[index+1][1];
+  description = _listData[index+1][3];
+  adress=_listData[index+1][2];
+}
 
 class information_page extends StatefulWidget {
-  const information_page({Key? key}) : super(key: key);
-
+  const information_page({Key? key,this.index=0}) : super(key: key);
+  final int index;
   @override
   State<information_page> createState() => _information_pageState();
 }
@@ -11,11 +28,12 @@ class information_page extends StatefulWidget {
 class _information_pageState extends State<information_page> {
   @override
   Widget build(BuildContext context) {
+    read_csv_information(widget.index);
     return MaterialApp(
       home: Scaffold(
         body: Stack(
             children : [
-              Image.asset("assets/recommend_assets/rainbow2.jpg",height: MediaQuery.of(context).size.height/10*6,fit: BoxFit.fitHeight,),
+              Image.asset(Imagemap_yeongdong.keys.elementAt(widget.index),height: MediaQuery.of(context).size.height/10*6,fit: BoxFit.fitHeight,),
               Positioned(
                   top: 20,
                   child: IconButton(onPressed: (){
@@ -69,7 +87,7 @@ class _information_pageState extends State<information_page> {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Color(0xff7D83FF)
                                 ),
-                                child: Center(child: Text("영화관",style: TextStyle(color: Colors.white),)),
+                                child: Center(child: Text("자연",style: TextStyle(color: Colors.white),)),
                               ),
                             ],
                           ),
@@ -79,7 +97,7 @@ class _information_pageState extends State<information_page> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text("레인보우 영화관",style: TextStyle(fontSize: 25),),
+                                Text("${title}",style: TextStyle(fontSize: 25),),
                                 Text("Lv4",style: TextStyle(color: Colors.red,fontSize: 17))
                               ],
                             ),
@@ -89,7 +107,7 @@ class _information_pageState extends State<information_page> {
                             child: Row(
                               children: [
                                 Icon(Icons.location_on_outlined,color: Colors.grey[600],),
-                                Text("영동군 영동읍 계산로 2길 24",style: TextStyle(color: Colors.grey[600],),)
+                                Text("${adress}",style: TextStyle(color: Colors.grey[600],),)
                               ],
                             ),
                           ),
@@ -103,7 +121,7 @@ class _information_pageState extends State<information_page> {
                               controller: scrollController,
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              itemCount: 5,
+                              itemCount: 3,
                                 itemBuilder: (context,index){
                                   if(index==0){
                                     return Column(
@@ -124,7 +142,7 @@ class _information_pageState extends State<information_page> {
                                               borderRadius: BorderRadius.circular(10),
                                               color: Colors.grey[300]
                                           ),
-                                          child: Center(child: Text("영동 레인보우 영화관은 편리한 매표시스템 및 매점 운영, 넓고 아늑한 휴게공간, 대형스크린과 최고급 사양의 넓고 안락한 관람의자를 보유하고 있으며 다양한 장르의 최신영화를 상영한다.")),
+                                          child: Center(child: Text("${description}")),
                                         ),
                                       ],
                                     );
@@ -136,85 +154,86 @@ class _information_pageState extends State<information_page> {
                                     );
                                   }
                                   else{
-                                    return Container(
-                                      margin: EdgeInsets.only(left: 10,right: 10),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            children: [
-                                              MaterialButton(
-                                                padding: EdgeInsets.zero,
-                                                child: ClipRRect(
-                                                  borderRadius: BorderRadius.circular(8.0),
-                                                  child:(
-                                                      Image.asset(
-                                                        width:MediaQuery.of(context).size.width/100*40,
-                                                        height:MediaQuery.of(context).size.height/5,
-                                                        'assets/recommend_assets/mulhan.jpg',
-                                                        fit:BoxFit.fill,
-                                                      )
-                                                  ),
-                                                ),
-                                                onPressed: (){},
-                                              ),
-                                              Container(
-                                                width:MediaQuery.of(context).size.width/100*40,
-                                                child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text("물한계곡",style: TextStyle(fontWeight: FontWeight.bold),),
-                                                    Row(
-                                                      children: [
-                                                        Icon(Icons.location_on_outlined,color: Colors.grey[600],),
-                                                        Text("영동군 상촌면",style: TextStyle(color: Colors.grey[600]),)
-                                                      ],
+                                    return Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            MaterialButton(
+                                              padding: EdgeInsets.zero,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(8.0),
+                                                child:(
+                                                    Image.asset(
+                                                      width:MediaQuery.of(context).size.width/100*40,
+                                                      height:MediaQuery.of(context).size.height/5,
+                                                      Imagemap_yeongdong.keys.elementAt(0),
+                                                      fit:BoxFit.fill,
                                                     )
-                                                  ],
                                                 ),
-                                              )
-                                            ],
-                                          ),
-                                          Column(
-                                            children: [
-                                              MaterialButton(
-                                                padding: EdgeInsets.zero,
-                                                child: ClipRRect(
-                                                  borderRadius: BorderRadius.circular(8.0),
-                                                  child:(
-                                                      Image.asset(
-                                                        width:MediaQuery.of(context).size.width/100*40,
-                                                        height:MediaQuery.of(context).size.height/5,
-                                                        'assets/recommend_assets/rainbow2.jpg',
-                                                        fit:BoxFit.fill,
-                                                      )
-                                                  ),
-                                                ),
-                                                onPressed: (){
-                                                  Navigator.push(context,
-                                                      MaterialPageRoute(builder: (context)=>information_page())
-                                                  );
-                                                },
                                               ),
-                                              Container(
-                                                width:MediaQuery.of(context).size.width/100*40,
-                                                child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text("레인보우 영화관",style: TextStyle(fontWeight: FontWeight.bold),),
-                                                    Row(
-                                                      children: [
-                                                        Icon(Icons.location_on_outlined,color: Colors.grey[600],),
-                                                        Text("영동군 영동읍",style: TextStyle(color: Colors.grey[600]),)
-                                                      ],
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>information_page(index: 0,))
+                                                );
+                                              },
+                                            ),
+                                            Container(
+                                              width:MediaQuery.of(context).size.width/100*40,
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("용두정",style: TextStyle(fontWeight: FontWeight.bold),),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.location_on_outlined,color: Colors.grey[600],),
+                                                      Text("영동군 영동읍",style: TextStyle(color: Colors.grey[600]),)
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            MaterialButton(
+                                              padding: EdgeInsets.zero,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(8.0),
+                                                child:(
+                                                    Image.asset(
+                                                      width:MediaQuery.of(context).size.width/100*40,
+                                                      height:MediaQuery.of(context).size.height/5,
+                                                      Imagemap_yeongdong.keys.elementAt(1),
+                                                      fit:BoxFit.fill,
                                                     )
-                                                  ],
                                                 ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                              ),
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>information_page(index: 1,))
+                                                );
+                                              },
+                                            ),
+                                            Container(
+                                              width:MediaQuery.of(context).size.width/100*40,
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text("난계국악박물관",style: TextStyle(fontWeight: FontWeight.bold),),
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.location_on_outlined,color: Colors.grey[600],),
+                                                      Text("영동군 심천면",style: TextStyle(color: Colors.grey[600]),)
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
                                     );
                                   }
                                 }

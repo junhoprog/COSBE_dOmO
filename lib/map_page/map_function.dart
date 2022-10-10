@@ -126,7 +126,7 @@ Future add_marker()async{
       final _rawData = await rootBundle.loadString(csv_List[i][j]);
       List<List<dynamic>> _listData =
       const CsvToListConverter().convert(_rawData,eol: "\n",allowInvalid: true);
-      for(int k=1;k<_listData.length-1;k++){
+      for(int k=1;k<_listData.length;k++){
         marker_array.add(Marker(markerId: MarkerId("${_listData[k][1]}"),position: LatLng((_listData[k][4] as num).toDouble(),(_listData[k][5] as num).toDouble(),),infoWindow: InfoWindow(title: "${_listData[k][1]}")));
       }
     }

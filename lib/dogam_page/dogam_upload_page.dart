@@ -319,7 +319,6 @@ class _upload_pageState extends State<upload_page> {
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
           title: Text(data[widget.index][1].toString(),style: TextStyle(color: Colors.black),),
-
           backgroundColor: Colors.white,
         ),
 

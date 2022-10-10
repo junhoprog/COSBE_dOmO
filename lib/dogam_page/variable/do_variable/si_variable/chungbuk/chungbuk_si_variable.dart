@@ -33,7 +33,7 @@ List <String> csv_chungbuk_List=[
   "assets/csv_assets/충청북도/충청북도_영동군.csv",
   "assets/csv_assets/충청북도/충청북도_옥천군.csv",
   "assets/csv_assets/충청북도/충청북도_음성군.csv",
-  "assets/csv_assets/충청북도/충청북도_제천군.csv",
+  "assets/csv_assets/충청북도/충청북도_제천시.csv",
   "assets/csv_assets/충청북도/충청북도_증평군.csv",
   "assets/csv_assets/충청북도/충청북도_진천군.csv",
   "assets/csv_assets/충청북도/충청북도_청주시.csv",

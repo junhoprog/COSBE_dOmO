@@ -91,6 +91,7 @@ import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/goyang/goyang_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gunpo/gunpo_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/guri/guri_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gwacheon/gwacheon_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gwangju2/gwangju2_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gwangmyeong/gwangmyeong_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeonggi/gyeonggi_si_variable.dart';
@@ -341,141 +342,143 @@ class _dogam_albumState extends State<dogam_album_page> {
         return Imagemap_goyang.keys.elementAt(index);
       }
       else if(widget.si_num==2){
-
+        length=Imagemap_gwacheon.length;
+        return Imagemap_gwacheon.keys.elementAt(index);
+      }
+      else if(widget.si_num==3){
         length=Imagemap_gwangmyeong.length;
         return Imagemap_gwangmyeong.keys.elementAt(index);
       }
-      else if(widget.si_num==3){
+      else if(widget.si_num==4){
 
         length=Imagemap_gwangju2.length;
         return Imagemap_gwangju2.keys.elementAt(index);
       }
-      else if(widget.si_num==4){
+      else if(widget.si_num==5){
 
         length=Imagemap_guri.length;
         return Imagemap_guri.keys.elementAt(index);
       }
-      else if(widget.si_num==5){
+      else if(widget.si_num==6){
 
         length=Imagemap_gunpo.length;
         return Imagemap_gunpo.keys.elementAt(index);
       }
-      else if(widget.si_num==6){
+      else if(widget.si_num==7){
 
         length=Imagemap_gimpo.length;
         return Imagemap_gimpo.keys.elementAt(index);
       }
-      else if(widget.si_num==7){
+      else if(widget.si_num==8){
 
         length=Imagemap_namyangju.length;
         return Imagemap_namyangju.keys.elementAt(index);
       }
-      else if(widget.si_num==8){
+      else if(widget.si_num==9){
 
         length=Imagemap_dongducheon.length;
         return Imagemap_dongducheon.keys.elementAt(index);
       }
-      else if(widget.si_num==9){
+      else if(widget.si_num==10){
 
         length=Imagemap_seongnam.length;
         return Imagemap_seongnam.keys.elementAt(index);
       }
-      else if(widget.si_num==10){
+      else if(widget.si_num==11){
 
         length=Imagemap_suwon.length;
         return Imagemap_suwon.keys.elementAt(index);
       }
-      else if(widget.si_num==11){
+      else if(widget.si_num==12){
 
         length=Imagemap_bucheon.length;
         return Imagemap_bucheon.keys.elementAt(index);
       }
-      else if(widget.si_num==12){
+      else if(widget.si_num==13){
 
         length=Imagemap_siheung.length;
         return Imagemap_siheung.keys.elementAt(index);
       }
-      else if(widget.si_num==13){
+      else if(widget.si_num==14){
 
         length=Imagemap_ansan.length;
         return Imagemap_ansan.keys.elementAt(index);
       }
-      else if(widget.si_num==14){
+      else if(widget.si_num==15){
 
         length=Imagemap_anseong.length;
         return Imagemap_anseong.keys.elementAt(index);
       }
-      else if(widget.si_num==15){
+      else if(widget.si_num==16){
 
         length=Imagemap_anyang.length;
         return Imagemap_anyang.keys.elementAt(index);
       }
-      else if(widget.si_num==16){
+      else if(widget.si_num==17){
 
         length=Imagemap_yangju.length;
         return Imagemap_yangju.keys.elementAt(index);
       }
-      else if(widget.si_num==17){
+      else if(widget.si_num==18){
 
         length=Imagemap_yangpyeong.length;
         return Imagemap_yangpyeong.keys.elementAt(index);
       }
-      else if(widget.si_num==18){
+      else if(widget.si_num==19){
 
         length=Imagemap_yeoju.length;
         return Imagemap_yeoju.keys.elementAt(index);
       }
-      else if(widget.si_num==19){
+      else if(widget.si_num==20){
 
         length=Imagemap_yeoncheon.length;
         return Imagemap_yeoncheon.keys.elementAt(index);
       }
-      else if(widget.si_num==20){
+      else if(widget.si_num==21){
 
         length=Imagemap_osan.length;
         return Imagemap_osan.keys.elementAt(index);
       }
-      else if(widget.si_num==21){
+      else if(widget.si_num==22){
 
         length=Imagemap_yongin.length;
         return Imagemap_yongin.keys.elementAt(index);
       }
-      else if(widget.si_num==22){
+      else if(widget.si_num==23){
 
         length=Imagemap_uiwang.length;
         return Imagemap_uiwang.keys.elementAt(index);
       }
-      else if(widget.si_num==23){
+      else if(widget.si_num==24){
 
         length=Imagemap_uijeongbu.length;
         return Imagemap_uijeongbu.keys.elementAt(index);
       }
-      else if(widget.si_num==24){
+      else if(widget.si_num==25){
 
         length=Imagemap_icheon.length;
         return Imagemap_icheon.keys.elementAt(index);
       }
-      else if(widget.si_num==25){
+      else if(widget.si_num==26){
 
         length=Imagemap_paju.length;
         return Imagemap_paju.keys.elementAt(index);
       }
-      else if(widget.si_num==26){
+      else if(widget.si_num==27){
 
         length=Imagemap_pyeongtaek.length;
         return Imagemap_pyeongtaek.keys.elementAt(index);
-      }else if(widget.si_num==27){
+      }else if(widget.si_num==28){
 
         length=Imagemap_pocheon.length;
         return Imagemap_pocheon.keys.elementAt(index);
       }
-      else if(widget.si_num==28){
+      else if(widget.si_num==29){
 
         length=Imagemap_hanam.length;
         return Imagemap_hanam.keys.elementAt(index);
       }
-      else if(widget.si_num==29){
-
+      else if(widget.si_num==30){
         length=Imagemap_hwaseong.length;
         return Imagemap_hwaseong.keys.elementAt(index);
       }
@@ -609,8 +612,6 @@ class _dogam_albumState extends State<dogam_album_page> {
         return Imagemap_jungeb.keys.elementAt(index);
       }
       else if(widget.si_num==13){
-
-
         length=Imagemap_jinan.length;
         return Imagemap_jinan.keys.elementAt(index);
       }
@@ -939,12 +940,12 @@ class _dogam_albumState extends State<dogam_album_page> {
         return Imagemap_cheongyang.keys.elementAt(index);
       }
       else if(widget.si_num==13){
-        length=Imagemap_hongseong.length;
-        return Imagemap_hongseong.keys.elementAt(index);
-      }
-      else if(widget.si_num==14){
         length=Imagemap_taean.length;
         return Imagemap_taean.keys.elementAt(index);
+      }
+      else if(widget.si_num==14){
+        length=Imagemap_hongseong.length;
+        return Imagemap_hongseong.keys.elementAt(index);
       }
     }
     else if(widget.do_num==8)
@@ -1826,7 +1827,6 @@ class _dogam_albumState extends State<dogam_album_page> {
                         scrollDirection: Axis.horizontal,
                         itemCount: data.length-1,
                         itemBuilder: (context, index) {
-
                             return Container(
                               margin: EdgeInsets.only(left: 20),
                               child: Column(
@@ -1834,8 +1834,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                   children: <Widget>[
                                     FutureBuilder(
                                         future: getData(index),
-                                        builder: (BuildContext context,
-                                            AsyncSnapshot snapshot) =>
+                                        builder: (BuildContext context, AsyncSnapshot snapshot) =>
                                         url_cheongju_List[index] == ""
                                             ? Stack(
                                           children: [
@@ -1863,6 +1862,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                                     do_num: widget
                                                                         .do_num))
                                                     );
+                                                    print("${data.length}");
                                                   }
                                                       : () {
                                                     showDialog<void>(

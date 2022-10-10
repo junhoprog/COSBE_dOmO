@@ -54,7 +54,7 @@ List <String> csv_gangwon_List=[
   "assets/csv_assets/강원도/강원도_춘천시.csv",
   "assets/csv_assets/강원도/강원도_태백시.csv",
   "assets/csv_assets/강원도/강원도_평창군.csv",
-  "assets/csv_assets/강원도/강원도_홍청군.csv",
+  "assets/csv_assets/강원도/강원도_홍천군.csv",
   "assets/csv_assets/강원도/강원도_화천군.csv",
   "assets/csv_assets/강원도/강원도_횡성군.csv",
 ];
