@@ -1,0 +1,26 @@
+Map<String,bool> Imagemap_buan = {
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_채석강.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_직소폭포.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_변산해수욕장.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_신재생에너지테마파크.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_매창공원.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_적벽강.jpg":false,
+  "assets/dogam_assets/Jeonbuk/부안/전라북도_부안군_부안영상테마파크.jpg":false,
+};
+List <String> url_buan_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

@@ -1,0 +1,25 @@
+Map<String,bool> Imagemap_donghae = {
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_동해 논골담길.jpg":false,
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_촛대바위.jpg":false,
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_추암.jpg":false,
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_추암해수욕장.jpg":false,
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_추암해변.jpg":false,
+  "assets/dogam_assets/Gangwon/동해/강원도_동해시_감추사.jpg":false,
+};
+List <String> url_donghae_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

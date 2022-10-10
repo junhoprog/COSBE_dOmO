@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_sejong = {
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_베어트리파크.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_세종호수공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_세종전통시장.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_봉산동 향나무.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_영평사.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_비암사.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_국립세종수목원.jpg":false,
+  "assets/dogam_assets/gwangyeok/세종/광역시_세종_황룡사.jpg":false,
+};
+List <String> url_sejong_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

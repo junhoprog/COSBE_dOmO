@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_gunsan = {
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_경암동철길마을 시작점.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_군산근대역사박물관.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_해망굴.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_대장도.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_신흥동 일본식가옥.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_물빛다리.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_수시탑.jpg":false,
+  "assets/dogam_assets/Jeonbuk/군산/전라북도_군산시_선유도해수욕장.jpg":false,
+};
+List <String> url_gunsan_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

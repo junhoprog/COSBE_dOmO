@@ -1,0 +1,30 @@
+Map<String,bool> Imagemap_guchang = {
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_금원산생태수목원.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_거창박물관.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_창포원.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_거창사건추모공원.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_연수사.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_금원산자연휴양림.jpg":false,
+  "assets/dogam_assets/gyeongnam/거창/경상남도_거창군_금봉암.jpg":false,
+};
+
+List <String> url_guchang_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

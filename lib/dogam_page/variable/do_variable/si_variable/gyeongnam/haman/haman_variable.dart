@@ -1,0 +1,28 @@
+Map<String,bool> Imagemap_haman = {
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_함주공원.jpg":false,
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_함안박물관.jpg":false,
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_충의공원.jpg":false,
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_장춘사.jpg":false,
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_능가사.jpg":false,
+  "assets/dogam_assets/gyeongnam/함안/경상남도_함안군_서산서원.jpg":false,
+};
+List <String> url_haman_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

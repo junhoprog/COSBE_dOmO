@@ -1,0 +1,31 @@
+Map<String,bool> Imagemap_jeju = {
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_용두암.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_비자림.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_한림공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_만장굴.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_사라봉공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_거문오름.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_한라산 국립공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_제주 유리의성.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_제주절물자연휴양림.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_김녕미로공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/제주/광역시_제주_용연구름다리.jpg":false,
+};
+
+List <String> url_jeju_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

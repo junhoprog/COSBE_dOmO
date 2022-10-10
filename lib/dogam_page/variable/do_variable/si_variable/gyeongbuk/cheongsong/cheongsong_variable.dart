@@ -1,0 +1,26 @@
+Map<String,bool> Imagemap_cheongsong= {
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_주왕산.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_주산지(注山池).jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_주왕산 국립공원.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_절구폭포.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_용연폭포.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_청송자연휴양림.jpg":false,
+  "assets/dogam_assets/gyeongbuk/청송/경상북도_청송군_군립청송야송미술관.jpg":false,
+};
+List <String> url_cheongsong_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

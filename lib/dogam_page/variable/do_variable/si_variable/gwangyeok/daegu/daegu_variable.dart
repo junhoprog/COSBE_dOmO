@@ -1,0 +1,30 @@
+Map<String,bool> Imagemap_daegu = {
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_83타워.jpg":false,
+"assets/dogam_assets/gwangyeok/대구/광역시_대구_대구수목원.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_두류공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_서문시장.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_국립대구박물관.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_국채보상운동기념공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_대구근대역사관.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_팔공산케이블카.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_대구미술관.jpg":false,
+  "assets/dogam_assets/gwangyeok/대구/광역시_대구_달성공원.jpg":false,
+};
+
+List <String> url_daegu_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

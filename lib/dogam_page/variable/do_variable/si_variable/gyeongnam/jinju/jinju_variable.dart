@@ -1,0 +1,28 @@
+Map<String,bool> Imagemap_jinju = {
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_촉석루.jpg":false,
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_경상남도수목원.jpg":false,
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_호국사.jpg":false,
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_석류공원.jpg":false,
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_진주 의암.jpg":false,
+  "assets/dogam_assets/gyeongnam/진주/경상남도_진주시_진주성.jpg":false,
+};
+List <String> url_jinju_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

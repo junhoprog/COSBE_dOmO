@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_gwangju = {
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_펭귄마을.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_운천저수지.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_5.18자유공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_월봉서원.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_송산유원지.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_광주천.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_어등산.jpg":false,
+  "assets/dogam_assets/gwangyeok/광주/광역시_광주_국립광주박물관.jpg":false,
+};
+List <String> url_gwangju_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

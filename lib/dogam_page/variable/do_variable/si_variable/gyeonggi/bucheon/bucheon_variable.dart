@@ -1,0 +1,43 @@
+Map<String,bool> Imagemap_bucheon = {
+  "assets/dogam_assets/Gyeonggi/부천/경기도_부천시_남부수자원생태공원.jpg":false,
+  "assets/dogam_assets/Gyeonggi/부천/경기도_부천시_고강선사유적공원.jpg":false,
+  "assets/dogam_assets/Gyeonggi/부천/경기도_부천시_한국만화박물관.jpg":false,
+  "assets/dogam_assets/Gyeonggi/부천/경기도_부천시_상동호수공원.jpg":false,
+  "assets/dogam_assets/Gyeonggi/부천/경기도_부천시_안중근공원.jpg":false,
+};
+
+
+
+List <String> url_bucheon_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "", 
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

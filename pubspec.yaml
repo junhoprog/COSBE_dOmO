@@ -88,9 +88,9 @@ flutter:
     - assets/csv_assets/경상남도/
     - assets/csv_assets/전라북도/
     - assets/csv_assets/강원도/
-    - assets/dogam_assets/do_assets/
+    - assets/dogam_assets/do_image_assets/
     - assets/dogam_assets/Chungbuk/Si_assets/
-    - assets/dogam_assets/Chungbuk/Cheongju/
+    - assets/dogam_assets/Chungbuk/청주/
     - assets/dogam_assets/Chungbuk/괴산/
     - assets/dogam_assets/Chungbuk/단양/
     - assets/dogam_assets/Chungbuk/보은/
@@ -205,14 +205,22 @@ flutter:
     - assets/dogam_assets/gyeongnam/Si_assets/
     - assets/dogam_assets/gyeongnam/거제/
     - assets/dogam_assets/gyeongnam/거창/
+    - assets/dogam_assets/gyeongnam/고성/
     - assets/dogam_assets/gyeongnam/김해/
+    - assets/dogam_assets/gyeongnam/남해/
     - assets/dogam_assets/gyeongnam/밀양/
     - assets/dogam_assets/gyeongnam/사천/
+    - assets/dogam_assets/gyeongnam/산청/
     - assets/dogam_assets/gyeongnam/양산/
+    - assets/dogam_assets/gyeongnam/의령/
     - assets/dogam_assets/gyeongnam/진주/
+    - assets/dogam_assets/gyeongnam/창녕/
     - assets/dogam_assets/gyeongnam/창원/
     - assets/dogam_assets/gyeongnam/통영/
+    - assets/dogam_assets/gyeongnam/하동/
     - assets/dogam_assets/gyeongnam/함안/
+    - assets/dogam_assets/gyeongnam/함양/
+    - assets/dogam_assets/gyeongnam/합천/
     - assets/dogam_assets/Jeonbuk/Si_assets/
     - assets/dogam_assets/Jeonbuk/고창/
     - assets/dogam_assets/Jeonbuk/군산/

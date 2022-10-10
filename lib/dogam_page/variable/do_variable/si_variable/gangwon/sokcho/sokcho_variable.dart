@@ -1,0 +1,31 @@
+Map<String,bool> Imagemap_sokcho = {
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_영금정.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_속초등대.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_엑스포타워.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_설악산 권금성.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_보광사.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_아바이마을.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_신흥사.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_속초해변.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_설악산 케이블카.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_설악산국립공원.jpg":false,
+  "assets/dogam_assets/Gangwon/속초/강원도_속초시_한화리조트 설악워터피아.jpg":false,
+};
+
+List <String> url_sokcho_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

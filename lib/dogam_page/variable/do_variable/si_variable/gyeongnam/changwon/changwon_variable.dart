@@ -1,0 +1,30 @@
+Map<String,bool> Imagemap_changwon = {
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_여좌천.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_주남저수지.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_상남분수광장.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_진해루.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_비음산.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_창원시립마산박물관.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_장미공원.jpg":false,
+};
+
+List <String> url_changwon_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

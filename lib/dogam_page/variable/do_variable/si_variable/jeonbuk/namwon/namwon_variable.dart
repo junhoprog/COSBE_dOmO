@@ -1,0 +1,25 @@
+Map<String,bool> Imagemap_namwon = {
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_춘향테마파크.jpg":false,
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_광한루원.jpg":false,
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_광한루(廣寒樓).jpg":false,
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_지리산허브밸리.jpg":false,
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_남원랜드.jpg":false,
+  "assets/dogam_assets/Jeonbuk/남원/전라북도_남원시_오리정.jpg":false,
+};
+List <String> url_namwon_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

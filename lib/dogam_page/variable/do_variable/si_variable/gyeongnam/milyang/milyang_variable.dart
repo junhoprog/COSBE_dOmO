@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_milyang = {
+  "assets/dogam_assets/gyeongnam/밀양/경상남도_밀양시_얼음골.jpg":false,
+  "assets/dogam_assets/gyeongnam/밀양/경상남도_밀양시_밀양댐.jpg":false,
+  "assets/dogam_assets/gyeongnam/밀양/경상남도_밀양시_종남산.jpg":false,
+  "assets/dogam_assets/gyeongnam/밀양/경상남도_밀양시_영남루.jpg":false,
+  "assets/dogam_assets/gyeongnam/밀양/경상남도_밀양시_삼문송림.jpg":false,
+};
+List <String> url_milyang_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

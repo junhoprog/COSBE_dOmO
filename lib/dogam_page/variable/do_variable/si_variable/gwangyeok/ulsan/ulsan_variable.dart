@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_ulsan = {
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_대왕암공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_울산대공원.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_파래소폭포.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_태화강 국가정원.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_일산해수욕장.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_외고산 옹기마을.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_장생포 고래문화마을 🐋.jpg":false,
+  "assets/dogam_assets/gwangyeok/울산/광역시_울산_간절곶.jpg":false,
+};
+List <String> url_ulsan_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

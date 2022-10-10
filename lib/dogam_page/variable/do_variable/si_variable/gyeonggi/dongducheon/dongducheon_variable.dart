@@ -1,0 +1,42 @@
+Map<String,bool> Imagemap_dongducheon = {
+  "assets/dogam_assets/Gyeonggi/동두천/경기도_동두천시_자재암.jpg":false,
+  "assets/dogam_assets/Gyeonggi/동두천/경기도_동두천시_자유수호평화박물관.jpg":false,
+  "assets/dogam_assets/Gyeonggi/동두천/경기도_동두천시_옥류폭포.jpg":false,
+  "assets/dogam_assets/Gyeonggi/동두천/경기도_동두천시_현충탑.jpg":false,
+};
+
+
+
+List <String> url_dongducheon_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "", 
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];

@@ -1,0 +1,27 @@
+Map<String,bool> Imagemap_yeongju = {
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_희방폭포.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_영주 무섬마을.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_희방사.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_선비촌.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_초암사.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_비로사.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_소수박물관.jpg":false,
+  "assets/dogam_assets/gyeongbuk/영주/경상북도_영주시_풍기인삼시장.jpg":false,
+  };
+List <String> url_yeongju_List=[
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+];
