@@ -129,6 +129,7 @@ import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/sacheon/sacheon_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/sancheong/sancheong_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/tongyeong/tongyeong_variable.dart';
+import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/uiryeong/uiryeong_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/yangsan/yangsan_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/buan/buan_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/gimjae/gimjae_variable.dart';
@@ -817,8 +818,8 @@ class _dogam_albumState extends State<dogam_album_page> {
       }
       else if(widget.si_num==2){
 
-        length=Imagemap_goseong.length;
-        return Imagemap_goseong.keys.elementAt(index);
+        length=Imagemap_goseong2.length;
+        return Imagemap_goseong2.keys.elementAt(index);
       }
       else if(widget.si_num==3){
         length=Imagemap_gimhae.length;
@@ -845,34 +846,39 @@ class _dogam_albumState extends State<dogam_album_page> {
         return Imagemap_yangsan.keys.elementAt(index);
       }
       else if(widget.si_num==9){
+
+        length=Imagemap_uiryeong.length;
+        return Imagemap_uiryeong.keys.elementAt(index);
+      }
+      else if(widget.si_num==10){
         length=Imagemap_jinju.length;
         return Imagemap_jinju.keys.elementAt(index);
       }
-      else if(widget.si_num==10){
+      else if(widget.si_num==11){
         length=Imagemap_changnyeong.length;
         return Imagemap_changnyeong.keys.elementAt(index);
       }
-      else if(widget.si_num==11){
+      else if(widget.si_num==12){
         length=Imagemap_changwon.length;
         return Imagemap_changwon.keys.elementAt(index);
       }
-      else if(widget.si_num==12){
+      else if(widget.si_num==13){
         length=Imagemap_tongyeong.length;
         return Imagemap_tongyeong.keys.elementAt(index);
       }
-      else if(widget.si_num==13){
+      else if(widget.si_num==14){
         length=Imagemap_hadong.length;
         return Imagemap_hadong.keys.elementAt(index);
       }
-      else if(widget.si_num==14){
+      else if(widget.si_num==15){
         length=Imagemap_haman.length;
         return Imagemap_haman.keys.elementAt(index);
       }
-      else if(widget.si_num==15){
+      else if(widget.si_num==16){
         length=Imagemap_hamyang.length;
         return Imagemap_hamyang.keys.elementAt(index);
       }
-      else if(widget.si_num==16){
+      else if(widget.si_num==17){
         length=Imagemap_habcheon.length;
         return Imagemap_habcheon.keys.elementAt(index);
       }
@@ -1844,7 +1850,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                   padding: EdgeInsets.zero,
                                                   onPressed:
                                                   marker_map["${data[index+1][1]
-                                                      .toString()}"] == true ?
+                                                      .toString()}"] == false ?
                                                       () {
                                                     Navigator.push(context,
                                                         MaterialPageRoute(

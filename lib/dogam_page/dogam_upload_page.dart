@@ -42,8 +42,10 @@ class _upload_pageState extends State<upload_page> {
   String description="";
   int count=1;
   bool marker=false;
+  var totallevel=0;
   List<List<dynamic>> data=[];
   final auth = FirebaseAuth.instance;
+  var level;
 
   void _loadCSV() async {
     final _rawData;
@@ -146,7 +148,7 @@ class _upload_pageState extends State<upload_page> {
         .doc('${do_dogam_text[widget.do_num]}')
         .collection('${gwangyeok_dogam_list[widget.si_num]}')
         .doc('${data[index][1]}')
-        .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+        .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
     }
     else if(widget.do_num==1)
     {
@@ -164,7 +166,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${gyeonggi_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
     }
     else if(widget.do_num==2)
     {
@@ -182,7 +184,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${chungbuk_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
     }
     else if(widget.do_num==3)
     {
@@ -200,7 +202,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${jeonbuk_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
 
     }
     else if(widget.do_num==4)
@@ -219,7 +221,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${gangwon_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
 
     }
     else if(widget.do_num==5)
@@ -238,7 +240,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${gyeongbuk_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
 
     }
     else if(widget.do_num==6)
@@ -257,7 +259,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${gyeongnam_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
     }
     else if(widget.do_num==7)    {
       filename=index;
@@ -274,7 +276,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${chungnam_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
 
     }
     else if(widget.do_num==8)
@@ -293,7 +295,7 @@ class _upload_pageState extends State<upload_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection('${jeonnam_dogam_list[widget.si_num]}')
           .doc('${data[index][1]}')
-          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}'});
+          .set({'url':'${url}','title':'${title}','description':'${description}','marker':'${marker}','name':'${auth.currentUser?.displayName}','level':'${data[index][6]}','totallevel':'${totallevel}'});
     }
   }
 
