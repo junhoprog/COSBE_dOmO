@@ -6,14 +6,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:cosbe_domo/login_page/main_screen.dart';
 import 'package:cosbe_domo/chatbot_page/chatbot.dart';
+String name = "";
+int level = 2;
+int exp = 10;
 
 class my_page extends StatelessWidget {
   static final storage = FlutterSecureStorage();
   my_page({Key? key}) : super(key: key);
 
-  String name = "";
-  int level = 2;
-  int exp = 10;
 
   final firestore=FirebaseFirestore.instance;
   final auth = FirebaseAuth.instance;
@@ -23,12 +23,13 @@ class my_page extends StatelessWidget {
     var result=await firestore
         .collection('${auth.currentUser?.uid}')
         .doc('유저정보').get();
-    level=result['level'];
-    exp=result['exp'];
+    level=int.parse(result['level']);
+    exp=int.parse(result['exp']);
     name=result['name'];
   }
   @override
   Widget build(BuildContext context) {
+    get_Infor();
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

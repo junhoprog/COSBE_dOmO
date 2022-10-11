@@ -20,13 +20,14 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String userEmail = '';
   String userPassword = '';
   String userInfo = '';
-  String level="";
+  int level=1;
   int exp=0;
   bool isChecked = false;
 
   final _authentication = FirebaseAuth.instance;
   static final storage = new FlutterSecureStorage();
   final firestore=FirebaseFirestore.instance;
+
   @override
   void initState() {
     super.initState();

@@ -1670,6 +1670,7 @@ class _dogam_albumState extends State<dogam_album_page> {
           .collection(chungbuk_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
       url_cheongju_List[index-1]=result['url'];
+      print(url_cheongju_List);
       return url_cheongju_List[index-1];
     }
     else if(widget.do_num==3)
@@ -1833,72 +1834,100 @@ class _dogam_albumState extends State<dogam_album_page> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     FutureBuilder(
-                                        future: getData(index),
-                                        builder: (BuildContext context, AsyncSnapshot snapshot) =>
-                                        url_cheongju_List[index] == ""
-                                            ? Stack(
-                                          children: [
-                                            ColorFiltered(
-                                                colorFilter: ColorFilter.mode(
-                                                    marker_map["${data[index+1][1]
-                                                        .toString()}"] == true
-                                                        ? Colors.transparent
-                                                        : Colors.grey,
-                                                    BlendMode.saturation),
-                                                child: MaterialButton(
-                                                  padding: EdgeInsets.zero,
-                                                  onPressed:
-                                                  marker_map["${data[index+1][1]
-                                                      .toString()}"] == true ?
-                                                      () {
-                                                    Navigator.push(context,
-                                                        MaterialPageRoute(
-                                                            builder: (
-                                                                context) =>
-                                                                upload_page(
-                                                                    index: index+1,
-                                                                    si_num: widget
-                                                                        .si_num,
-                                                                    do_num: widget
-                                                                        .do_num))
-                                                    );
-                                                    print("${data.length}");
-                                                  }
-                                                      : () {
-                                                    showDialog<void>(
-                                                      context: context,
-                                                      barrierDismissible: false,
-                                                      // user must tap button!
-                                                      builder: (
-                                                          BuildContext context) {
-                                                        return AlertDialog(
-                                                          title: Text(
-                                                              "${data[index+1][1].toString()}"),
-                                                          content: SingleChildScrollView(
-                                                            child: ListBody(
-                                                              children: [
-                                                                Text(
-                                                                    '아직 글과 사진을 등록하실 수 없습니다.'),
+                                        future: getData(index+1),
+                                        builder: (BuildContext context, AsyncSnapshot snapshot){
+                                          if(snapshot.hasData==false){
+                                            return Stack(
+                                              children: [
+                                                ColorFiltered(
+                                                    colorFilter: ColorFilter.mode(
+                                                        marker_map["${data[index+1][1]
+                                                            .toString()}"] == true
+                                                            ? Colors.transparent
+                                                            : Colors.grey,
+                                                        BlendMode.saturation),
+                                                    child: MaterialButton(
+                                                      padding: EdgeInsets.zero,
+                                                      onPressed:
+                                                      marker_map["${data[index+1][1]
+                                                          .toString()}"] == true ?
+                                                          () {
+                                                        Navigator.push(context,
+                                                            MaterialPageRoute(
+                                                                builder: (
+                                                                    context) =>
+                                                                    upload_page(
+                                                                        index: index+1,
+                                                                        si_num: widget
+                                                                            .si_num,
+                                                                        do_num: widget
+                                                                            .do_num))
+                                                        );
+                                                        print("${data.length}");
+                                                      }
+                                                          : () {
+                                                        showDialog<void>(
+                                                          context: context,
+                                                          barrierDismissible: false,
+                                                          // user must tap button!
+                                                          builder: (
+                                                              BuildContext context) {
+                                                            return AlertDialog(
+                                                              title: Text(
+                                                                  "${data[index+1][1].toString()}"),
+                                                              content: SingleChildScrollView(
+                                                                child: ListBody(
+                                                                  children: [
+                                                                    Text(
+                                                                        '아직 글과 사진을 등록하실 수 없습니다.'),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              actions: <Widget>[
+                                                                TextButton(
+                                                                  child: const Text(
+                                                                      '네'),
+                                                                  onPressed: () {
+                                                                    Navigator.of(
+                                                                        context)
+                                                                        .pop();
+                                                                  },
+                                                                ),
                                                               ],
-                                                            ),
-                                                          ),
-                                                          actions: <Widget>[
-                                                            TextButton(
-                                                              child: const Text(
-                                                                  '네'),
-                                                              onPressed: () {
-                                                                Navigator.of(
-                                                                    context)
-                                                                    .pop();
-                                                              },
-                                                            ),
-                                                          ],
+                                                            );
+                                                          },
                                                         );
                                                       },
-                                                    );
-                                                  },
-                                                  child: Image.asset(
-                                                    image_map(index),
+                                                      child: Image.asset(
+                                                        image_map(index),
+                                                        fit: BoxFit.fitHeight,
+                                                        width: MediaQuery
+                                                            .of(context)
+                                                            .size
+                                                            .width / 2,
+                                                        height: MediaQuery
+                                                            .of(context)
+                                                            .size
+                                                            .height / 5 * 2,
+                                                      ),
+                                                    )
+                                                ),
+                                                Positioned(
+                                                  top: 5,
+                                                  right: 5,
+                                                  child: Icon(
+                                                    Icons.add_a_photo_outlined,
+                                                    size: 40,),
+                                                )
+                                              ],
+                                            );
+                                          }
+                                          else{
+                                            return Container(
+                                                child: MaterialButton(
+                                                  padding: EdgeInsets.zero,
+                                                  child: Image.network(
+                                                    url_cheongju_List[index],
                                                     fit: BoxFit.fitHeight,
                                                     width: MediaQuery
                                                         .of(context)
@@ -1909,46 +1938,22 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                         .size
                                                         .height / 5 * 2,
                                                   ),
+                                                  onPressed: () {
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                dogam_post_page(
+                                                                    index: index+1,
+                                                                    si_num: widget
+                                                                        .si_num,
+                                                                    do_num: widget
+                                                                        .do_num))
+                                                    );
+                                                  },
                                                 )
-                                            ),
-                                            Positioned(
-                                              top: 5,
-                                              right: 5,
-                                              child: Icon(
-                                                Icons.add_a_photo_outlined,
-                                                size: 40,),
-                                            )
-                                          ],
-                                        )
-                                            : Container(
-                                            child: MaterialButton(
-                                              padding: EdgeInsets.zero,
-                                              child: Image.network(
-                                                url_cheongju_List[index],
-                                                fit: BoxFit.fitHeight,
-                                                width: MediaQuery
-                                                    .of(context)
-                                                    .size
-                                                    .width / 2,
-                                                height: MediaQuery
-                                                    .of(context)
-                                                    .size
-                                                    .height / 5 * 2,
-                                              ),
-                                              onPressed: () {
-                                                Navigator.push(context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            dogam_post_page(
-                                                                index: index+1,
-                                                                si_num: widget
-                                                                    .si_num,
-                                                                do_num: widget
-                                                                    .do_num))
-                                                );
-                                              },
-                                            )
-                                        )
+                                            );
+                                          }
+                                        }
                                     ),
                                     Text("${data[index+1][1].toString()}",
                                       style: TextStyle(fontSize: 20),),
