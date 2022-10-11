@@ -16,6 +16,7 @@ class _home_pageState extends State<home_page> {
 
   @override
   Widget build(BuildContext context) {
+    print(csv_level);
     location.onLocationChanged.listen((l) async {
         initLocationService(location);
         marker_search();

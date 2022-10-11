@@ -18,6 +18,7 @@ class _loading_pageState extends State<loading_page> {
   void initState() {
     add_marker();
     Timer(Duration(milliseconds: 5000), () {
+      add_level();
       add_marker_map();
       Navigator.push(context, MaterialPageRoute(
           builder: (context) => LoginSignupScreen()

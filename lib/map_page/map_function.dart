@@ -138,3 +138,25 @@ Future add_marker_map()async{
     marker_map[marker_array.elementAt(i).markerId.value.toString()]=false;
   }
 }
+
+Map<String,int> csv_level={};
+
+Future add_level()async{
+  final _rawData = await rootBundle.loadString("assets/csv_assets/level.csv");
+  List<List<dynamic>> _listData =
+  const CsvToListConverter().convert(_rawData,eol: "\n",allowInvalid: true);
+  for(int i=1;i<_listData.length;i++){
+    if(i<=30){
+      csv_level[_listData[i][1]]=4;
+    }
+    else if(i<=60){
+      csv_level[_listData[i][1]]=3;
+    }
+    else if(i<=100){
+      csv_level[_listData[i][1]]=2;
+    }
+    else {
+      csv_level[_listData[i][1]] =1;
+    }
+  }
+}

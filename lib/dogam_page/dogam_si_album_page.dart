@@ -10,6 +10,7 @@ import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonbuk/j
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/gyeongnam/gyeongnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/jeonnam/jeonnam_si_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/dogam_variable.dart';
+import 'package:cosbe_domo/map_page/map_function.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import'package:flutter/material.dart';
 import 'dogam_album_page.dart';
@@ -307,13 +308,53 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children:[
-                                      Text( dogam_list(index),style:TextStyle(
+                                      Text(dogam_list(index),style:TextStyle(
                                         fontSize:30,
                                         color: Colors.white,
                                       )
                                       ),
                                     ],
                                   ),
+                                ),
+                                Positioned(
+                                  top: 10,
+                                  right: 10,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      // Stroked text as border.
+                                      Text(
+                                        "LV.${csv_level[dogam_list(index)]}",
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          foreground: Paint()
+                                            ..style = PaintingStyle.stroke
+                                            ..strokeWidth = 6
+                                            ..color=((){
+                                                if("${csv_level[dogam_list(index)]}"=="1"){
+                                                  return Colors.blue;
+                                                }
+                                                else if("${csv_level[dogam_list(index)]}"=="2"){
+                                                  return Colors.green;
+                                                }
+                                                else if("${csv_level[dogam_list(index)]}"=="3"){
+                                                  return Colors.purple;
+                                                }
+                                                else{
+                                                  return Colors.red;
+                                                }
+                                            }()),
+                                        ),
+                                      ),
+                                      // Solid text as fill.
+                                      Text(
+                                        "LV.${csv_level[dogam_list(index)]}",
+                                        style: TextStyle(
+                                          fontSize: 30,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  )
                                 ),
                                 Positioned(
                                   bottom:10,
