@@ -317,7 +317,6 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               onTap: () async {
                 if (isSignupScreen) {
                   _tryValidation();
-
                   try {
                     final newUser =
                         await _authentication.createUserWithEmailAndPassword(

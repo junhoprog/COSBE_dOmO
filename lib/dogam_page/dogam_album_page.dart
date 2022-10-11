@@ -819,8 +819,8 @@ class _dogam_albumState extends State<dogam_album_page> {
       }
       else if(widget.si_num==2){
 
-        length=Imagemap_goseong2.length;
-        return Imagemap_goseong2.keys.elementAt(index);
+        length=Imagemap_goseong.length;
+        return Imagemap_goseong.keys.elementAt(index);
       }
       else if(widget.si_num==3){
         length=Imagemap_gimhae.length;
@@ -1648,8 +1648,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(gwangyeok_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
 
     else if(widget.do_num==1)
@@ -1659,8 +1659,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(gyeonggi_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==2)
     {
@@ -1669,8 +1669,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(chungbuk_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==3)
     {
@@ -1679,8 +1679,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(jeonbuk_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==4)
     {
@@ -1689,8 +1689,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(gangwon_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==5)
     {
@@ -1699,8 +1699,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(gyeongbuk_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==6)
     {
@@ -1709,8 +1709,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(gyeongnam_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==7)
     {
@@ -1719,8 +1719,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(chungnam_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
     else if(widget.do_num==8)
     {
@@ -1729,8 +1729,8 @@ class _dogam_albumState extends State<dogam_album_page> {
           .doc('${do_dogam_text[widget.do_num]}')
           .collection(jeonnam_dogam_list[widget.si_num])
           .doc('${data[index][1]}').get();
-      url_cheongju_List[index]=result['url'];
-      return url_cheongju_List[index];
+      url_cheongju_List[index-1]=result['url'];
+      return url_cheongju_List[index-1];
     }
   }
   String si_dogam_text() {
