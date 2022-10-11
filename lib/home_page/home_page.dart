@@ -25,67 +25,106 @@ class _home_pageState extends State<home_page> {
       home: Scaffold(
         body: Stack(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height/10*4,
-              width: MediaQuery.of(context).size.width,
-              color: Color(0xff656CFF),
-              child: Column(
-                children: [
-                  SizedBox(height: MediaQuery.of(context).size.height/20),
-                  Text("dOmO",style: TextStyle(color: Colors.white,fontSize: 30),),
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/50),
-                    width: MediaQuery.of(context).size.width/10*8,
-                    height: MediaQuery.of(context).size.height/10,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      border: Border.all(width: 0.7)
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: Row(
-                                children: [
-                                  Icon(Icons.leaderboard),
-                                  Text("Lv1",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                                ],
-                              ),
-                            ),
-                            Text("70%",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                          ],
+            Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height/10*4,
+                  width: MediaQuery.of(context).size.width,
+                  color: Color(0xff656CFF),
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQuery.of(context).size.height/20),
+                      Text("dOmO",style: TextStyle(color: Colors.white,fontSize: 30),),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/50),
+                        width: MediaQuery.of(context).size.width/100*85,
+                        height: MediaQuery.of(context).size.height/10,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            border: Border.all(width: 0.7)
                         ),
-                        Stack(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: MediaQuery.of(context).size.height/50,
-                              width: MediaQuery.of(context).size.width/10*8,
-                              decoration: BoxDecoration(
-                                border: Border.all(width: 0.7),
-                                borderRadius: BorderRadius.circular(20)
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.leaderboard),
+                                      Text("Lv1",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                    ],
+                                  ),
+                                ),
+                                Text("70%",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                              ],
                             ),
-                            Container(
-                              height: MediaQuery.of(context).size.height/50,
-                              width: MediaQuery.of(context).size.width/10*5,
-                              decoration: BoxDecoration(
-                                color: Color(0xff656CFF),
-                                  border: Border.all(width: 0.7),
-                                  borderRadius: BorderRadius.circular(20)
-                              ),
+                            Stack(
+                              children: [
+                                Container(
+                                  height: MediaQuery.of(context).size.height/50,
+                                  width: MediaQuery.of(context).size.width/10*8,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 0.7),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                ),
+                                Container(
+                                  height: MediaQuery.of(context).size.height/50,
+                                  width: MediaQuery.of(context).size.width/10*5,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xff656CFF),
+                                      border: Border.all(width: 0.7),
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                )
+                              ],
                             )
                           ],
-                        )
-                      ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: MediaQuery.of(context).size.height/20,
+                  right:  MediaQuery.of(context).size.width/100*8,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width/10*2,
+                    height: MediaQuery.of(context).size.height/15,
+                    child:MaterialButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=>map_page())
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.my_location,color: Colors.black,size: 15),
+                                Text(" 내 위치",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 12,height: 1),),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -101,106 +140,6 @@ class _home_pageState extends State<home_page> {
                       ),
                       child: Column(
                         children: [
-                          SizedBox(height: MediaQuery.of(context).size.height/30),
-                          Container(child: Row(
-                            children: [
-                              Flexible(flex: 1,fit: FlexFit.tight,child: SizedBox(),),
-                              Flexible(flex:8,child:Align(alignment: Alignment.centerLeft,child: Text("진행중인 도감",style: TextStyle(fontWeight: FontWeight.w900),)), ),
-                              Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
-                            ],
-                          )), //진행중인 도감
-                          SizedBox(height: MediaQuery.of(context).size.height/30),
-                          Container(
-                            height: MediaQuery.of(context).size.height/4,
-                            width: MediaQuery.of(context).size.width,
-                            child: PageView.builder(
-                                controller: proceeding_dogam_controller,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 5,
-                                itemBuilder: (BuildContext context,int index){
-                                  return Container(
-                                    margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/20),
-                                    child: Stack(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(20),
-                                          child: Image.asset(
-                                            "assets/home_assets/sangdang.jpg",fit: BoxFit.fill,
-                                            height: MediaQuery.of(context).size.height/4,
-                                          ),
-                                        ),
-                                        Container(
-                                          height: MediaQuery.of(context).size.height/4,
-                                          width: MediaQuery.of(context).size.width,
-                                          padding: EdgeInsets.all(10),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text("청주",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  Container(
-                                                    child: Row(
-                                                      children: [
-                                                        Icon(Icons.location_on_outlined,color: Colors.white,),
-                                                        Text("충청북도",style: TextStyle(color: Colors.white),)
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Text("3/19",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  );
-                                }
-                            ),
-                          ), //진행중인 도감 컨테이너
-                          SizedBox(height: MediaQuery.of(context).size.height/30),
-                          Container(
-                              child: Row(
-                                children: [
-                                  Flexible(flex: 1,fit: FlexFit.tight,child: SizedBox(),),
-                                  Flexible(flex:8,
-                                      child:Container(
-                                        height: MediaQuery.of(context).size.height/15,
-                                        child:MaterialButton(
-                                          padding: EdgeInsets.zero,
-                                          onPressed: (){
-                                            Navigator.push(context,
-                                                MaterialPageRoute(builder: (context)=>map_page())
-                                            );
-                                          },
-                                          child: Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(30),
-                                              color: Color(0xff656CFF),
-                                            ),
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(Icons.my_location,color: Colors.white,),
-                                                    Text("  내 위치",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15,height: 1),),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                  ),
-                                  Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
-                                ],
-                              )),// 도감 더 채우러가기
                           SizedBox(height: MediaQuery.of(context).size.height/30),
                           Container(child: Row(
                             children: [
@@ -302,6 +241,101 @@ class _home_pageState extends State<home_page> {
                                   Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
                                 ],
                               )),
+                          SizedBox(height: MediaQuery.of(context).size.height/30),
+                          Container(child: Row(
+                            children: [
+                              Flexible(flex: 1,fit: FlexFit.tight,child: SizedBox(),),
+                              Flexible(flex:8,child:Align(alignment: Alignment.centerLeft,child: Text("dOmO 사용법",style: TextStyle(fontWeight: FontWeight.w900),)), ),
+                              Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
+                            ],
+                          )),
+                          SizedBox(height: MediaQuery.of(context).size.height/60),
+                          Container(child: Row(
+                            children: [
+                              Flexible(flex: 1,fit: FlexFit.tight,child: SizedBox(),),
+                              Flexible(flex:8,child:Align(alignment: Alignment.centerLeft,child: Divider(thickness: 2,color: Colors.grey[400],))),
+                              Flexible(flex:1,fit: FlexFit.tight,child: SizedBox())
+                            ],
+                          )),
+                          SizedBox(height: MediaQuery.of(context).size.height/60),
+                          Container(
+                            width: MediaQuery.of(context).size.width/10*8,
+                            height: MediaQuery.of(context).size.height/10*4,
+                            child: PageView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Container(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Image.asset("assets/home_assets/one.png",width: 40,),
+                                          SizedBox(width: MediaQuery.of(context).size.width/100*5,),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("dOmO와 함께 여행을 즐겨보세요!",style: TextStyle(fontSize: 12),),
+                                              Text("여행지를 정하고 여행을 하면,",style: TextStyle(fontSize: 12),),
+                                              Text("dOmO가 활성화를 시켜줍니다!",style: TextStyle(fontSize: 12),),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Center(
+                                        child: Image.asset("assets/home_assets/manual_one.png",height: MediaQuery.of(context).size.height/4,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Image.asset("assets/home_assets/two.png",width: 40,),
+                                          SizedBox(width: MediaQuery.of(context).size.width/100*5,),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("활성화가 되었나요?",style: TextStyle(fontSize: 12),),
+                                              Text("바로 도감에 등록해보세요!",style: TextStyle(fontSize: 12),),
+                                              Text("도감에 사진과 글을 등록하실 수 있습니다!",style: TextStyle(fontSize: 12),),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Center(
+                                        child: Image.asset("assets/home_assets/manual_two.png",height: MediaQuery.of(context).size.height/4,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Image.asset("assets/home_assets/three.png",width: 40,),
+                                          SizedBox(width: MediaQuery.of(context).size.width/100*5,),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("dOmO가 여행을 도와드립니다!",style: TextStyle(fontSize: 12),),
+                                              Text("추천여행지로 좋지만 소외된 지역을 알리고,",style: TextStyle(fontSize: 12),),
+                                              Text("챗봇으로 여러 정보를 얻을 수 있습니다!",style: TextStyle(fontSize: 12),),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Center(
+                                        child: Image.asset("assets/home_assets/manual_three.png",height: MediaQuery.of(context).size.height/4,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                           SizedBox(height: MediaQuery.of(context).size.height/30),
                         ],
                       ),

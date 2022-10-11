@@ -8,6 +8,7 @@ Map<String,bool> Imagemap_cheongju = {
   "assets/dogam_assets/Chungbuk/청주/충청북도_청주시_청주중앙공원.jpg":false,
   "assets/dogam_assets/Chungbuk/청주/충청북도_청주시_청남대(靑南臺).jpg":false,
   "assets/dogam_assets/Chungbuk/청주/충청북도_청주시_청주시립미술관.jpg":false,
+  "assets/dogam_assets/Chungbuk/청주/충청북도_청주시_충북대학교.jpg":false,
 };
 
 List <String> url_cheongju_List=[
