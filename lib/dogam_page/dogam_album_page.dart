@@ -1849,7 +1849,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                                                   padding: EdgeInsets.zero,
                                                   onPressed:
                                                   marker_map["${data[index+1][1]
-                                                      .toString()}"] == false ?
+                                                      .toString()}"] == true ?
                                                       () {
                                                     Navigator.push(context,
                                                         MaterialPageRoute(

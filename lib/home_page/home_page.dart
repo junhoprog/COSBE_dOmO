@@ -13,6 +13,12 @@ class home_page extends StatefulWidget {
 }
 
 class _home_pageState extends State<home_page> {
+  final name = "";
+  final level = 2;
+  final exp = 10;
+
+  List level_exp = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +62,11 @@ class _home_pageState extends State<home_page> {
                                   child: Row(
                                     children: [
                                       Icon(Icons.leaderboard),
-                                      Text("Lv1",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                                      Text("Lv${level}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                                     ],
                                   ),
                                 ),
-                                Text("70%",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
+                                Text("${exp / level_exp[level-1] * 100}%",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
                               ],
                             ),
                             Stack(
@@ -75,7 +81,7 @@ class _home_pageState extends State<home_page> {
                                 ),
                                 Container(
                                   height: MediaQuery.of(context).size.height/50,
-                                  width: MediaQuery.of(context).size.width/10*5,
+                                  width: MediaQuery.of(context).size.width/10*8*(exp/level_exp[level-1]),
                                   decoration: BoxDecoration(
                                       color: Color(0xff656CFF),
                                       border: Border.all(width: 0.7),

@@ -33,6 +33,8 @@ class upload_page extends StatefulWidget {
 }
 
 class _upload_pageState extends State<upload_page> {
+
+  List level_exp = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
   PickedFile? pickedFile;
   FirebaseStorage storage=FirebaseStorage.instance;
   final firestore=FirebaseFirestore.instance;
@@ -40,12 +42,13 @@ class _upload_pageState extends State<upload_page> {
   var images;
   String title="";
   String description="";
-  int count=1;
+  int level=0;
+  int exp=0;
+  String name="";
   bool marker=false;
   var totallevel=0;
   List<List<dynamic>> data=[];
   final auth = FirebaseAuth.instance;
-  var level;
 
   void _loadCSV() async {
     final _rawData;
@@ -126,6 +129,58 @@ class _upload_pageState extends State<upload_page> {
   @override
   void initState(){
     _loadCSV();
+    get_Infor();
+  }
+
+  Future get_Infor()async{
+    var result=await firestore
+        .collection('${auth.currentUser?.uid}')
+        .doc('유저정보').get();
+    level=result['level'];
+    exp=result['exp'];
+    name=result['name'];
+  }
+  Future upload_Infor(int index)async{
+    if(data[index][6]==1){
+      exp=exp+1;
+      if(exp >= level_exp[level - 1])
+        {
+          int t=level_exp[level - 1];
+         exp=exp-t;
+          level++;
+        }
+    }
+    else if(data[index][6]==2){
+      exp=exp+2;
+      if(exp >= level_exp[level - 1])
+      {
+        int t=level_exp[level - 1];
+      exp=exp-t;
+        level++;
+      }
+    }
+    else if(data[index][6]==3){
+      exp=exp+3;
+      if(exp >= level_exp[level - 1])
+      {
+        int t=level_exp[level - 1];
+      exp=exp-t;
+        level++;
+      }
+    }
+    else if(data[index][6]==4){
+      exp=exp+4;
+      if(exp >= level_exp[level - 1])
+      {
+        int t=level_exp[level - 1];
+      exp=exp-t;
+        level++;
+      }
+    }
+    firestore
+        .collection('${auth.currentUser?.uid}')
+        .doc('유저정보')
+        .set({'name':'${name}','level':'${level}','exp':'${exp}','email':'${auth.currentUser?.email}'});
   }
 
   Future uploadFile1(int index)async{
@@ -401,6 +456,7 @@ class _upload_pageState extends State<upload_page> {
                     MaterialButton(
                       onPressed: (){
                         uploadFile1(widget.index);
+                        upload_Infor(widget.index);
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context)=>dogam_album_page(si_num:widget.si_num, do_num:widget.do_num))
                         );

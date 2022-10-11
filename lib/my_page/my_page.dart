@@ -1,12 +1,32 @@
-import 'package:cosbe_domo/chatbot_page/chatbot.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
-import 'package:cosbe_domo/chatbot_page/chat.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:cosbe_domo/login_page/main_screen.dart';
+import 'package:cosbe_domo/chatbot_page/chatbot.dart';
 
 class my_page extends StatelessWidget {
-  const my_page({Key? key}) : super(key: key);
+  static final storage = FlutterSecureStorage();
+  my_page({Key? key}) : super(key: key);
 
+  String name = "";
+  int level = 2;
+  int exp = 10;
+
+  final firestore=FirebaseFirestore.instance;
+  final auth = FirebaseAuth.instance;
+  List level_exp = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
+
+  Future get_Infor()async{
+    var result=await firestore
+        .collection('${auth.currentUser?.uid}')
+        .doc('유저정보').get();
+    level=result['level'];
+    exp=result['exp'];
+    name=result['name'];
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +53,7 @@ class my_page extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            child: Text("이동율님 환영합니다.")
+                            child: Text("${name}님 환영합니다.")
                         ),
                         Container(
                           height: 30,
@@ -44,7 +64,10 @@ class my_page extends StatelessWidget {
                           ),
                           child: MaterialButton(
                             padding: EdgeInsets.zero,
-                              onPressed: (){},
+                              onPressed: (){
+                                storage.delete(key: "login");
+                                Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => LoginSignupScreen()));
+                              },
                             child: Text("로그아웃",style: TextStyle(color: Colors.white),),
                           ),
                         )
@@ -72,7 +95,7 @@ class my_page extends StatelessWidget {
                                 children: [
                                   Icon(Icons.leaderboard),
                                   Text(
-                                    "Lv1",
+                                    "Lv${level}",
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
@@ -80,7 +103,7 @@ class my_page extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Text("70%",
+                            Text("${exp / level_exp[level - 1] * 100}%",
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.bold)),
                           ],
@@ -99,7 +122,7 @@ class my_page extends StatelessWidget {
                               Container(
                                 height: MediaQuery.of(context).size.height / 50,
                                 width:
-                                    MediaQuery.of(context).size.width / 10 * 5,
+                                    MediaQuery.of(context).size.width / 10 * 8 * (exp / level_exp[level - 1]),
                                 decoration: BoxDecoration(
                                     color: Color(0xff656CFF),
                                     border: Border.all(width: 0.7),

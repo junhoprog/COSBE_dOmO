@@ -1,9 +1,9 @@
-import 'package:cosbe_domo/map_page/map_function.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cosbe_domo/home_page/home_page.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({Key? key}) : super(key: key);
@@ -13,17 +13,20 @@ class LoginSignupScreen extends StatefulWidget {
 }
 
 class _LoginSignupScreenState extends State<LoginSignupScreen> {
+
   bool isSignupScreen = true;
   final _formKey = GlobalKey<FormState>();
   String userName = '';
   String userEmail = '';
   String userPassword = '';
   String userInfo = '';
+  String level="";
+  int exp=0;
   bool isChecked = false;
 
   final _authentication = FirebaseAuth.instance;
   static final storage = new FlutterSecureStorage();
-
+  final firestore=FirebaseFirestore.instance;
   @override
   void initState() {
     super.initState();
@@ -32,7 +35,14 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
     });
   }
 
-  _asyncMethod() async {
+  Future upload_infor()async{
+    firestore
+        .collection('${_authentication.currentUser?.uid}')
+        .doc('유저정보')
+        .set({'name':'${userName}','level':'${level}','exp':'${exp}','email':'${_authentication.currentUser?.email}'});
+  }
+
+_asyncMethod() async {
     userInfo = (await storage.read(key: "login"))!;
     print(userInfo);
 
@@ -321,8 +331,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     final newUser =
                         await _authentication.createUserWithEmailAndPassword(
                             email: userEmail, password: userPassword);
-
+//*
                     if (newUser.user != null) {
+                      upload_infor();
                       Fluttertoast.showToast(msg: '가입 완료했습니다');
                     }
                   } catch (e) {
