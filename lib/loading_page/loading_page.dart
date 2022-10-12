@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cosbe_domo/information_page/recommend_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cosbe_domo/map_page/map_function.dart';
 import 'package:flutter/material.dart';
 
 import '../login_page/main_screen.dart';
+import '../my_page/my_page.dart';
 
 class loading_page extends StatefulWidget {
   const loading_page({Key? key}) : super(key: key);
@@ -16,7 +18,9 @@ class loading_page extends StatefulWidget {
 class _loading_pageState extends State<loading_page> {
   @override
   void initState() {
+    current_tap=0;
     add_marker();
+    get_Infor();
     Timer(Duration(milliseconds: 5000), () {
       add_level();
       add_marker_map();

@@ -9,24 +9,29 @@ import 'package:cosbe_domo/chatbot_page/chatbot.dart';
 String name = "";
 int level = 2;
 int exp = 10;
+final firestore=FirebaseFirestore.instance;
+final auth = FirebaseAuth.instance;
+
+Future get_Infor()async{
+  var result=await firestore
+      .collection('${auth.currentUser?.uid}')
+      .doc('유저정보').get();
+  level=int.parse(result['level']);
+  exp=int.parse(result['exp']);
+  name=result['name'];
+}
 
 class my_page extends StatelessWidget {
   static final storage = FlutterSecureStorage();
   my_page({Key? key}) : super(key: key);
 
-
-  final firestore=FirebaseFirestore.instance;
-  final auth = FirebaseAuth.instance;
   List level_exp = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
 
-  Future get_Infor()async{
-    var result=await firestore
-        .collection('${auth.currentUser?.uid}')
-        .doc('유저정보').get();
-    level=int.parse(result['level']);
-    exp=int.parse(result['exp']);
-    name=result['name'];
+  @override
+  void initState(){
+    get_Infor();
   }
+
   @override
   Widget build(BuildContext context) {
     get_Infor();

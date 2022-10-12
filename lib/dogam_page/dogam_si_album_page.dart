@@ -14,6 +14,7 @@ import 'package:cosbe_domo/map_page/map_function.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import'package:flutter/material.dart';
 import 'dogam_album_page.dart';
+import 'dogam_do_album_page.dart';
 
 class dogam_si_album_page extends StatefulWidget {
   const dogam_si_album_page({Key? key,this.index=0}) : super(key: key);
@@ -266,7 +267,9 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: MaterialButton(
-            onPressed: (){Navigator.pop(context);},
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>dogam_do_album_page()));
+            },
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
           title:Text('${do_dogam_text[do_num]}',style:TextStyle(

@@ -6,6 +6,7 @@ import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:latlong2/latlong.dart' as lat;
 import 'package:async/async.dart';
+import '../chatbot_page/message.dart';
 import '../csv_list.dart';
 import 'Marker.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -159,4 +160,13 @@ Future add_level()async{
       csv_level[_listData[i][1]] =1;
     }
   }
+}
+
+Future<void> chat_marker_search()async {
+  for(int i=0;i<markerlist.length;i++){
+    final meter = distance.as(lat.LengthUnit.Meter, lat.LatLng(current_latitude,current_longitude), lat.LatLng(markerlist[i].position.latitude,markerlist[i].position.longitude));
+    if(meter<10000){
+      sentence+="${marker_array.elementAt(i).markerId.value.toString()} ";
+    }
+  };
 }

@@ -23,11 +23,11 @@ import 'package:csv/csv.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class upload_page extends StatefulWidget {
-  const upload_page({Key? key,this.index=1,this.si_num=1,this.do_num=1,bool amend=false}) : super(key: key);
+  const upload_page({Key? key,this.index=1,this.si_num=1,this.do_num=1, this.amend=false}) : super(key: key);
   final int index;
   final int si_num;
   final int do_num;
-  final bool amend = false;
+  final bool amend;
   @override
   State<upload_page> createState() => _upload_pageState();
 }
@@ -370,7 +370,9 @@ class _upload_pageState extends State<upload_page> {
         appBar: AppBar(
           elevation: 0,
           leading: MaterialButton(
-            onPressed: (){Navigator.pop(context);},
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>dogam_album_page(do_num: widget.do_num,si_num: widget.si_num)));
+            },
             child: Icon(Icons.keyboard_arrow_left,size: 40,),
           ),
           title: Text(data[widget.index][1].toString(),style: TextStyle(color: Colors.black),),
@@ -456,7 +458,8 @@ class _upload_pageState extends State<upload_page> {
                     MaterialButton(
                       onPressed: (){
                         uploadFile1(widget.index);
-                        upload_Infor(widget.index);
+                        if(widget.amend==false){upload_Infor(widget.index);}
+                        get_Infor();
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context)=>dogam_album_page(si_num:widget.si_num, do_num:widget.do_num))
                         );

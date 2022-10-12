@@ -7,9 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cosbe_domo/bottom_bar/bottom_bar.dart';
 import 'package:cosbe_domo/map_page/map_function.dart';
-String name = "";
-int level = 2;
-int exp = 10;
+import '../my_page/my_page.dart';
 
 class home_page extends StatefulWidget {
   const home_page({Key? key}) : super(key: key);
@@ -20,19 +18,11 @@ class home_page extends StatefulWidget {
 
 class _home_pageState extends State<home_page> {
 
-  FirebaseStorage storage=FirebaseStorage.instance;
-  final firestore=FirebaseFirestore.instance;
-  final auth = FirebaseAuth.instance;
-
   List level_exp = [ 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ];
 
-  Future get_Infor()async{
-    var result=await firestore
-        .collection('${auth.currentUser?.uid}')
-        .doc('유저정보').get();
-    level=int.parse(result['level']);
-    exp=int.parse(result['exp']);
-    name=result['name'];
+  @override
+  void initState(){
+    get_Infor();
   }
 
 

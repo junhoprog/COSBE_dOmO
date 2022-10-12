@@ -1,9 +1,18 @@
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+
+import '../csv_list.dart';
+import '../map_page/Marker.dart';
+import '../map_page/map_function.dart';
+
+
+String sentence = "";
 
 class Message extends StatefulWidget {
   const Message({Key? key}) : super(key: key);
@@ -31,7 +40,6 @@ class _MessageState extends State<Message> {
   Future<void> _sendChatBotMessage() async {
     final user = FirebaseAuth.instance.currentUser;
     final area = "청주";
-    String sentence = "";
 
     if (_userEnterMessage.toString().split(' ')[0] == '!안녕') {
       sentence = "안녕하세요 도모입니다!";
@@ -73,7 +81,9 @@ class _MessageState extends State<Message> {
         sentence += "비/눈 입니다.";
       }
     } else if (_userEnterMessage.toString().split(' ')[0] == '!관광지') {
-      sentence = "주변 관광지입니다";
+      sentence = "주변 관광지로는 ";
+      chat_marker_search();
+      sentence+="이(가) 있습니다.";
     } else if (_userEnterMessage.toString().split(' ')[0] == '!추천') {
       sentence = "추천 감사합니다.\n최대한 빠르게 반영하겠습니다!";
     }
@@ -89,6 +99,7 @@ class _MessageState extends State<Message> {
       'userID': user!.uid + '/chatbot',
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

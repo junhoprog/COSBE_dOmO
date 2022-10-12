@@ -1,3 +1,4 @@
+import 'package:cosbe_domo/dogam_page/dogam_si_album_page.dart';
 import 'package:cosbe_domo/dogam_page/dogam_upload_page.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/do_variable.dart';
 import 'package:cosbe_domo/dogam_page/variable/do_variable/si_variable/chungbuk/boeun/boeun_variable.dart';
@@ -1804,7 +1805,7 @@ class _dogam_albumState extends State<dogam_album_page> {
                           Positioned(
                               top: 20,
                               child: IconButton(onPressed: (){
-                                Navigator.pop(context);
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>dogam_si_album_page(index: widget.do_num,)));
                               }, icon: Icon(Icons.keyboard_arrow_left,size: 50,color: Colors.white,))
                           ),
                           Positioned(
