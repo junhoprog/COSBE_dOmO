@@ -7,7 +7,7 @@ Map<String,bool> Imagemap_suwon = {
   "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_화서문.jpg":false,
   "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_팔달문.jpg":false,
   "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_수원화성박물관.jpg":false,
-  "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_장안문.g":false,
+  "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_장안문.jpg":false,
   "assets/dogam_assets/Gyeonggi/수원/경기도_수원시_창룡문.jpg":false,
 };
 List <String> url_suwon_List=[

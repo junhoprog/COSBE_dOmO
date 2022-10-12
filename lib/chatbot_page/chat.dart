@@ -10,7 +10,7 @@ class Chat extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser;
     FirebaseFirestore.instance.collection('chat').add({
       'text':
-          "안녕하세요. 도모 챗봇입니다.\n저의 기능은 다음과 같습니다.\n1. 날씨를 받아보세요.\n2. 주변 관광지를 받아보세요.\n3. 여러분이 아는 여행지를 등록해주세요.\n감사합니다!",
+          "안녕하세요. 저는 챗봇 도모입니다.\n!명령어 를 통해 저의 기능을 알 수 있습니다.",
       'time': Timestamp.now(),
       'userID': user!.uid + '/chatbot',
     });

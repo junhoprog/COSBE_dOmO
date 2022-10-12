@@ -11,6 +11,10 @@ class ChatBot extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: MaterialButton(
+            onPressed: (){Navigator.pop(context);},
+            child: Icon(Icons.keyboard_arrow_left,color: Colors.white,size: 40,),
+          ),
           backgroundColor: Color(0xff656CFF),
           title: Text("dOmO"),
           centerTitle: true,

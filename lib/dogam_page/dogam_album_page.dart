@@ -380,19 +380,16 @@ class _dogam_albumState extends State<dogam_album_page> {
         return Imagemap_dongducheon.keys.elementAt(index);
       }
       else if(widget.si_num==10){
-
+        length=Imagemap_bucheon.length;
+        return Imagemap_bucheon.keys.elementAt(index);
+      }
+      else if(widget.si_num==11){
         length=Imagemap_seongnam.length;
         return Imagemap_seongnam.keys.elementAt(index);
       }
-      else if(widget.si_num==11){
-
+      else if(widget.si_num==12){
         length=Imagemap_suwon.length;
         return Imagemap_suwon.keys.elementAt(index);
-      }
-      else if(widget.si_num==12){
-
-        length=Imagemap_bucheon.length;
-        return Imagemap_bucheon.keys.elementAt(index);
       }
       else if(widget.si_num==13){
 
@@ -769,13 +766,13 @@ class _dogam_albumState extends State<dogam_album_page> {
       }
 
       else if(widget.si_num==15){
-        length=Imagemap_ulleung.length;
-         return Imagemap_ulleung.keys.elementAt(index);
+        length=Imagemap_yaecheon.length;
+        return Imagemap_yaecheon.keys.elementAt(index);
       }
 
       else if(widget.si_num==16){
-        length=Imagemap_yaecheon.length;
-         return Imagemap_yaecheon.keys.elementAt(index);
+        length=Imagemap_ulleung.length;
+        return Imagemap_ulleung.keys.elementAt(index);
       }
 
       else if(widget.si_num==17){
@@ -1624,10 +1621,15 @@ class _dogam_albumState extends State<dogam_album_page> {
     }
     return "null";
   }
+
   @override
-  void initState(){
-    _loadCSV();
+  void initState() {
     getData(widget.si_num);
+    setState(() {
+      _loadCSV();
+    });
+
+    super.initState();
   }
 
   void init(){

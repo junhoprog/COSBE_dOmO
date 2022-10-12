@@ -6,6 +6,7 @@ Map<String,bool> Imagemap_changwon = {
   "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_비음산.jpg":false,
   "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_창원시립마산박물관.jpg":false,
   "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_장미공원.jpg":false,
+  "assets/dogam_assets/gyeongnam/창원/경상남도_창원시_집앞.jpg":false,
 };
 
 List <String> url_changwon_List=[

@@ -393,7 +393,7 @@ class _dogam_post_pageState extends State<dogam_post_page> {
             MaterialButton(
                 onPressed: (){
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=>upload_page(index:widget.index))
+                      MaterialPageRoute(builder: (context)=>upload_page(index:widget.index,do_num: widget.do_num,si_num: widget.si_num,amend: true,))
                   );
                 },
               child: Text("수정하기",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700,fontSize: 20),),

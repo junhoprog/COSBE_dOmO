@@ -243,10 +243,21 @@ class _dogam_si_album_pageState extends State<dogam_si_album_page> {
         }
   }
   @override
+  void initState() {
+    do_num=widget.index;
+    setState(() {
+      init();
+    });
+
+    super.initState();
+  }
+  /*@override
   void initState(){
     do_num=widget.index;
-    init();
-  }
+    setState(){
+      init();
+    }
+  }*/
 
   @override
   Widget build(BuildContext context) {

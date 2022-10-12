@@ -3,7 +3,7 @@ Map<String,bool> Imagemap_anseong = {
   "assets/dogam_assets/Gyeonggi/안성/경기도_안성시_안성맞춤박물관.jpg":false,
   "assets/dogam_assets/Gyeonggi/안성/경기도_안성시_안성팜랜드.jpg":false,
   "assets/dogam_assets/Gyeonggi/안성/경기도_안성시_안성맞춤가족공원.jpg":false,
-  "assets/dogam_assets/Gyeonggi/안성/경기도_안성시_솔밭공원":false,
+  "assets/dogam_assets/Gyeonggi/안성/경기도_안성시_솔밭공원.jpg":true,
 };
 
 

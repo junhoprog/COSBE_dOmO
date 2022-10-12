@@ -33,12 +33,12 @@ class _MessageState extends State<Message> {
     final area = "청주";
     String sentence = "";
 
-    if (_userEnterMessage.toString().split('')[0] == '!안녕') {
-      sentence = "안녕하세요 도모입니다";
-    } else if (_userEnterMessage.toString().split('')[0] == '!날씨') {
+    if (_userEnterMessage.toString().split(' ')[0] == '!안녕') {
+      sentence = "안녕하세요 도모입니다!";
+    } else if (_userEnterMessage.toString().split(' ')[0] == '!날씨') {
       sentence = " 현재 날씨는 ";
       String day =
-          DateFormat('yyyyMMdd').format(DateTime.now().add(Duration(hours: 9)));
+      DateFormat('yyyyMMdd').format(DateTime.now().add(Duration(hours: 9)));
       String apiKey =
           'BsWjauEPurdxlyYK6jPg%2FsTprdhoQobX65%2FVLTaczX%2BPNbZ%2FeYU8y12kV%2B6MztPTIsxS1yagDl5Pym%2BsIWt7Fg%3D%3D';
       String network =
@@ -72,10 +72,13 @@ class _MessageState extends State<Message> {
       } else {
         sentence += "비/눈 입니다.";
       }
-    } else if (_userEnterMessage.toString().split('')[0] == '!관광지') {
-      sentence = area + " 주변 관광지입니다";
-    } else if (_userEnterMessage.toString().split('')[0] == '!추천') {
+    } else if (_userEnterMessage.toString().split(' ')[0] == '!관광지') {
+      sentence = "주변 관광지입니다";
+    } else if (_userEnterMessage.toString().split(' ')[0] == '!추천') {
       sentence = "추천 감사합니다.\n최대한 빠르게 반영하겠습니다!";
+    }
+    else if (_userEnterMessage.toString().split(' ')[0] == '!명령어') {
+      sentence = "저의 기능은 다음과 같습니다.\n1. 날씨를 받아보세요. ex)!날씨 \n2. 주변 관광지를 받아보세요. ex)!관광지 \n3. 여러분이 아는 여행지를 등록해주세요.ex)!추천 OO\n4. 저에게 인사를 해주세요! ex)!안녕\n감사합니다!";
     } else {
       sentence = "무슨 말인지 잘 모르겠네요";
     }

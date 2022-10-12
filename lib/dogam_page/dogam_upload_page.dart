@@ -23,11 +23,11 @@ import 'package:csv/csv.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class upload_page extends StatefulWidget {
-  const upload_page({Key? key,this.index=1,this.si_num=1,this.do_num=1}) : super(key: key);
+  const upload_page({Key? key,this.index=1,this.si_num=1,this.do_num=1,bool amend=false}) : super(key: key);
   final int index;
   final int si_num;
   final int do_num;
-
+  final bool amend = false;
   @override
   State<upload_page> createState() => _upload_pageState();
 }
@@ -178,7 +178,7 @@ class _upload_pageState extends State<upload_page> {
       }
     }
     else {
-      exp=exp+7;
+      exp=exp+1;
       if(exp >= level_exp[level - 1])
       {
         int t=level_exp[level - 1];

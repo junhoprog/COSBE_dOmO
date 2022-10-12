@@ -14,6 +14,7 @@
     <application
         android:label="domo"
         android:name="com.chaquo.python.android.PyApplication"
+        android:exported="true"
         android:icon="@mipmap/domo_color_icon">
 
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCCuWce3n9SMeJua6cQ_vfnFEcd0zJ3H1g"/>

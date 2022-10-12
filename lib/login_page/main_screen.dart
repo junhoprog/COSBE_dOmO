@@ -155,8 +155,8 @@ _asyncMethod() async {
                           TextFormField(
                             key: ValueKey(1),
                             validator: (value) {
-                              if (value!.isEmpty || value.length < 4) {
-                                return 'Please enter at least 4 characters';
+                              if (value!.isEmpty || value.length < 3) {
+                                return 'Please enter at least 3 characters';
                               }
                               return null;
                             },
